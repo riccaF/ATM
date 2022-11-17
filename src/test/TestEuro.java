@@ -44,6 +44,8 @@ public class TestEuro {
 
     @Test
     public void testUgualeA() {
-
+        var testEuro1 = new Euro(3);
+        var testEuro2 = new Euro(3,0);
+        assertEquals(true, testEuro1.ugualeA(testEuro2));
     }
 }
