@@ -1,19 +1,18 @@
-package code;
+package code.Business_logic;
+
 public class Euro {
-
-
 	private long valore;
 
 	public Euro(long euro, long cent) {
 		if (euro >= 0) {
-			valore = euro*100 + cent;
+			valore = euro * 100 + cent;
 		} else {
-			valore = euro*100 - cent;
+			valore = euro * 100 - cent;
 		}
 	}
 
 	public Euro(double d) {
-		valore = (long)(d*100);
+		valore = (long) (d * 100);
 	}
 
 	public long getValore() {
@@ -30,19 +29,21 @@ public class Euro {
 		return this;
 	}
 
-	public boolean ugualeA(Euro e){
+	public boolean ugualeA(Euro e) {
 		if (valore == e.getValore())
 			return true;
-		else return false;
-	}
-	
-	public boolean minoreDi(Euro e){
-		if (valore <= e.getValore())
-			return true;
-		else return false;
+		else
+			return false;
 	}
 
-	public String stampa(){
-		return (double)valore/100 +" euro";
+	public boolean minoreDi(Euro e) {
+		if (valore <= e.getValore())
+			return true;
+		else
+			return false;
+	}
+
+	public String stampa() {
+		return (double) valore / 100 + " euro";
 	}
 }
