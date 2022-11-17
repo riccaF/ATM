@@ -52,6 +52,9 @@ public class AccountTest {
 
     @Test
     public void testDebit() {
+        Euro amount = new Euro(1000);
+        testAccount.debit(amount);
+        assertEquals(11900000, testAccount.getTotalBalance().getValore());
 
     }
 }
