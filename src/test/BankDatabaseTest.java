@@ -26,24 +26,18 @@ public class BankDatabaseTest {
         assertTrue("User 1234 is not authenticated", !bdtest.authenticateUser(1234, 5432));
     }
 
-
     @Test
-    public void testCredit() {
-
+    public void testValidGetAvailableBalance() {
+        assertTrue("User 12345 has 100000.0 euro available", bdtest.getAvailableBalance(12345).getValore() == 100000);
     }
 
     @Test
-    public void testDebit() {
-
-    }
-
-    @Test
-    public void testGetAvailableBalance() {
-
+    public void testInvalidGetAvailableBalance() {
+        assertTrue("User 12345 has not 1000.0 euro available", bdtest.getAvailableBalance(12345).getValore() != 1000);
     }
 
     @Test
     public void testGetTotalBalance() {
-
+        
     }
 }
