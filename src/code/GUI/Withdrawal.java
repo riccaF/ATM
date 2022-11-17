@@ -2,17 +2,18 @@ package code.GUI;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 
+import code.Business_logic.Euro;
 import code.Database.BankDatabase;
 import code.Database.Transaction;
 
 public class Withdrawal extends Transaction
 {
-   private int amount; // amount to withdraw
+   private Euro amount; // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
    // constant corresponding to menu option to cancel
-   private final static int CANCELED = 6;
+   private final static Euro CANCELED = new Euro(0);
 
    // Withdrawal constructor
    public Withdrawal( int userAccountNumber, Screen atmScreen, 
@@ -31,7 +32,7 @@ public class Withdrawal extends Transaction
    public void execute()
    {
       boolean cashDispensed = false; // cash was not dispensed yet
-      double availableBalance; // amount available for withdrawal
+      Euro availableBalance; // amount available for withdrawal
 
       // get references to bank database and screen
       BankDatabase bankDatabase = getBankDatabase(); 
@@ -51,7 +52,7 @@ public class Withdrawal extends Transaction
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount <= availableBalance )
+            if ( amount.minoreDi(availableBalance) )
             {   
                // check whether the cash dispenser has enough money
                if ( cashDispenser.isSufficientCashAvailable( amount ) )
@@ -89,7 +90,7 @@ public class Withdrawal extends Transaction
 
    // display a menu of withdrawal amounts and the option to cancel;
    // return the chosen amount or 0 if the user chooses to cancel
-   private int displayMenuOfAmounts()
+   private Euro displayMenuOfAmounts()
    {
       int userChoice = 0; // local variable to store return value
 
@@ -123,8 +124,8 @@ public class Withdrawal extends Transaction
             case 5:
                userChoice = amounts[ input ]; // save user's choice
                break;       
-            case CANCELED: // the user chose to cancel
-               userChoice = CANCELED; // save user's choice
+            case 6: // the user chose to cancel
+               userChoice = 0; // save user's choice
                break;
             default: // the user did not enter a value from 1-6
                screen.displayMessageLine( 
@@ -132,7 +133,7 @@ public class Withdrawal extends Transaction
          } // end switch
       } // end while
 
-      return userChoice; // return withdrawal amount or CANCELED
+      return new Euro(userChoice); // return withdrawal amount or CANCELED
    } // end method displayMenuOfAmounts
 } // end class Withdrawal
 
