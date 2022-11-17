@@ -7,14 +7,12 @@ import org.junit.Test;
 import code.Business_logic.Euro;
 
 public class TestEuro {
-    // TODO(arkeane)
     @Test
     public void testGetValore() {
         Euro e = new Euro(10, 50);
         assertEquals(1050, e.getValore());
     }
 
-    // TODO(iobah)
     @Test
     public void testMinoreDi() {
         Euro a= new Euro(1);
@@ -22,7 +20,6 @@ public class TestEuro {
         assertTrue( a.minoreDi(b));
     }
 
-    // TODO(anubi0)
     @Test
     public void testSomma() {
         Euro e1 = new Euro(1);
@@ -31,7 +28,6 @@ public class TestEuro {
         assertEquals(300, e1.getValore());
     }
 
-    // TODO(arkeane)
     @Test
     public void testSottrai() {
         Euro e1 = new Euro(2, 50);
@@ -40,14 +36,12 @@ public class TestEuro {
         assertEquals(-300, e1.getValore());
     }
 
-    // TODO(iobah)
     @Test
     public void testStampa() {
         Euro a= new Euro(1,20);
         assertEquals("1.2 euro" , a.stampa());
     }
 
-    // TODO(anubi0)
     @Test
     public void testUgualeA() {
         Euro e1 = new Euro(1);
