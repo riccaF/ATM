@@ -7,13 +7,6 @@ import org.junit.Test;
 import code.Business_logic.Account;
 import code.Business_logic.Euro;
 
-import code.Business_logic.Account;
-import code.Business_logic.Euro;
-
-import static org.junit.Assert.assertEquals;
-import code.Business_logic.Euro;
-import code.Business_logic.Account;
-
 public class AccountTest {
     @Test
     public void testCredit() {
