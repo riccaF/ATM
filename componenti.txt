@@ -1,0 +1,11 @@
+Capiaghi Ludovico   S4983244    -> @Ludof63
+Contegno Matteo     S4834997    -> @Matz2K00
+Polidoro Sabrina    S4682624    -> @SabrinaPolidoro
+
+Come abbiamo svolto il lavoro:
+- abbiamo inizialmente creato branch test e feature partendo dalla versione 1.0 del master
+- @Ludof63 e @Matz2K00 (principalmente) hanno lavorato all'implementazioni delle modifiche sul branch feature
+- @SabrinaPolidoro ha svolto lo sviluppo dei test per Euro sul branch test
+- Una volta completate le modifiche su feature abbiamo fatto il merge su test per procedere con i test
+- I test di Account e BankDatabase sono stati svolti da @Ludof63 e @SabrinaPolidoro 
+- Con i test completi infine fatto il merge di test su master e aggiunto componenti.txt
