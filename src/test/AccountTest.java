@@ -45,9 +45,9 @@ public class AccountTest {
 
     @Test
     public void testValidCredit() {
-
-
-
+        Euro amount = new Euro(1000);
+        testAccount.credit(amount);
+        assertEquals(12100000, testAccount.getTotalBalance().getValore());
     }
 
     @Test
