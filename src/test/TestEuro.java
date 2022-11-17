@@ -23,18 +23,22 @@ public class TestEuro {
 
     @Test
     public void testSomma() {
-        var testEuro1 = new Euro(2,20);
-        var testEuro2 = new Euro(3,30);
-        assertEquals(550, testEuro1.somma(testEuro2).getValore());
+        var testEuro1 = new Euro(3,20);
+        var testEuro2 = new Euro(2,20);
+        assertEquals(540, testEuro1.somma(testEuro2).getValore());
     }
 
     @Test
     public void testSottrai() {
-
+        var testEuro1 = new Euro(3,20);
+        var testEuro2 = new Euro(2,20);
+        assertEquals(100, testEuro1.sottrai(testEuro2).getValore());
     }
 
     @Test
     public void testStampa() {
+        var testEuro1 = new Euro(3);
+        assertEquals("3.0 euro", testEuro1.stampa());
 
     }
 
