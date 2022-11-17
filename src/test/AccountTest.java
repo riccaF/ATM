@@ -33,9 +33,15 @@ public class AccountTest {
     }
 
     @Test
-    public void testValidatePIN() {
-
+    public void testValidValidatePIN() {
+        assertEquals(true, testAccount.validatePIN(54321));
     }
+
+    @Test
+    public void testInvalidValidatePIN() {
+        assertEquals(false, testAccount.validatePIN(5432));
+    }
+
 
     @Test
     public void testValidCredit() {
