@@ -1,6 +1,9 @@
-package code;
+package code.Business_logic;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
+
+import code.Database.*;
+import code.GUI.*;
 
 public class Withdrawal extends Transaction
 {

@@ -1,4 +1,4 @@
-package code;
+package code.GUI;
 // Screen.java
 // Represents the screen of the ATM
 
