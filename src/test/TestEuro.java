@@ -1,6 +1,5 @@
 package test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -11,22 +10,21 @@ public class TestEuro {
 
     @Test
     public void testGetValore() {
-        double d = 0.9 ;
-        var testEuro = new Euro(d);
-        assertEquals(90, testEuro.getValore());
+        var testEuro = new Euro(1,23);
+        assertEquals(123, testEuro.getValore());
     }
 
     @Test
     public void testMinoreDi() {
-        double d1 = 0.9 ;
-        var testEuro1 = new Euro(d1);
-        double d2 = 0.7 ;
-        var testEuro2 = new Euro(d2);
-        assertTrue("70€ < 90€", testEuro2.minoreDi(testEuro1));       
+        var testEuro1 = new Euro(99,23);
+        var testEuro2 = new Euro(100,23);
+        assertEquals(true, testEuro1.minoreDi(testEuro2));     
     }
 
     @Test
     public void testSomma() {
+
+
 
     }
 
