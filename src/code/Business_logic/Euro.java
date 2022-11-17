@@ -1,3 +1,4 @@
+package Business_logic;
 public class Euro {
     private long valore;
     public Euro(long euro, long cent) {

@@ -1,3 +1,7 @@
+package GUI;
+import Database.BankDatabase;
+import Database.Transaction;
+
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 

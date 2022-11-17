@@ -1,3 +1,8 @@
+package GUI;
+
+import Database.BankDatabase;
+import Database.Transaction;
+
 // ATM.java
 // Represents an automated teller machine
 
