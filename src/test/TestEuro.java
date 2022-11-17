@@ -1,6 +1,8 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import code.Business_logic.Euro;
 
@@ -17,7 +19,7 @@ public class TestEuro {
     public void testMinoreDi() {
         Euro a= new Euro(1);
         Euro b=new Euro(2);
-        assertEquals(true , a.minoreDi(b));
+        assertTrue( a.minoreDi(b));
     }
 
     // TODO(anubi0)
@@ -50,6 +52,6 @@ public class TestEuro {
     public void testUgualeA() {
         Euro e1 = new Euro(1);
         Euro e2 = new Euro(1);
-        assertEquals(true, e1.ugualeA(e2));
+        assertTrue(e1.ugualeA(e2));
     }
 }
