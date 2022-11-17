@@ -11,8 +11,8 @@ public class BankDatabase {
    // no-argument BankDatabase constructor initializes accounts
    public BankDatabase() {
       accounts = new Account[2]; // just 2 accounts for testing
-      accounts[0] = new Account(12345, 54321, 1000.0, 1200.0);
-      accounts[1] = new Account(98765, 56789, 200.0, 200.0);
+      accounts[0] = new Account(12345, 54321, new Euro(1000.0), new Euro(1200.0));
+      accounts[1] = new Account(98765, 56789, new Euro(200.0), new Euro(200.0));
    } // end no-argument BankDatabase constructor
 
    // retrieve Account object containing specified account number
@@ -41,12 +41,12 @@ public class BankDatabase {
    } // end method authenticateUser
 
    // return available balance of Account with specified account number
-   public double getAvailableBalance(int userAccountNumber) {
+   public Euro getAvailableBalance(int userAccountNumber) {
       return getAccount(userAccountNumber).getAvailableBalance();
    } // end method getAvailableBalance
 
    // return total balance of Account with specified account number
-   public double getTotalBalance(int userAccountNumber) {
+   public Euro getTotalBalance(int userAccountNumber) {
       return getAccount(userAccountNumber).getTotalBalance();
    } // end method getTotalBalance
 
