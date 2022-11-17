@@ -23,9 +23,9 @@ public class TestEuro {
 
     @Test
     public void testSomma() {
-
-
-
+        var testEuro1 = new Euro(2,20);
+        var testEuro2 = new Euro(3,30);
+        assertEquals(550, testEuro1.somma(testEuro2).getValore());
     }
 
     @Test
