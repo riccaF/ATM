@@ -6,7 +6,7 @@ import code.Business_logic.*;
 import code.Database.BankDatabase;
 
 public class Deposit extends Transaction {
-   private double amount; // amount to deposit
+   private Euro amount; // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
@@ -28,10 +28,10 @@ public class Deposit extends Transaction {
       BankDatabase bankDatabase = getBankDatabase(); // get reference
       Screen screen = getScreen(); // get reference
 
-      amount = promptForDepositAmount(); // get deposit amount from user
+      amount = new Euro(promptForDepositAmount()); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
-      if (amount != CANCELED) {
+      if (amount.getValore() != CANCELED) {
          // request deposit envelope containing specified amount
          screen.displayMessage(
                "\nPlease insert a deposit envelope containing ");
@@ -49,7 +49,7 @@ public class Deposit extends Transaction {
                   "enclosed cash and your checks clear.");
 
             // credit account to reflect the deposit
-            bankDatabase.credit(getAccountNumber(), amount);
+            bankDatabase.credit(getAccountNumber(), amount.getValore());
          } // end if
          else // deposit envelope not received
          {
