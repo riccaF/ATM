@@ -38,6 +38,6 @@ public class BankDatabaseTest {
 
     @Test
     public void testGetTotalBalance() {
-        
+        assertTrue("User 12345 has 120000.0 euro in total", bdtest.getTotalBalance(12345).getValore() == 120000);
     }
 }
