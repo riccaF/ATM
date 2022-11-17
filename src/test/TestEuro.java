@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import code.Business_logic.Euro;
 
-import code.Business_logic.Euro;
-
 public class TestEuro {
     // TODO(arkeane)
     @Test
