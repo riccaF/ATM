@@ -1,5 +1,6 @@
-// ATMCaseStudy.java
-// Driver program for the ATM case study
+
+
+import code.GUI.ATM;
 
 public class ATMCaseStudy
 {
