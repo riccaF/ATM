@@ -149,8 +149,6 @@ public class ATM
    } // end method createTransaction
 } // end class ATM
 
-
-
 /**************************************************************************
  * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
