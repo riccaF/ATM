@@ -1,6 +1,6 @@
 // CashDispenser.java
 // Represents the cash dispenser of the ATM
-
+package code.GUI;
 public class CashDispenser 
 {
    // the default initial number of bills in the cash dispenser
