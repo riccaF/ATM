@@ -1,9 +1,16 @@
+package code.Business_logic;
+
+import code.Database.BankDatabase;
+import code.GUI.DepositSlot;
+import code.GUI.Keypad;
+import code.GUI.Screen;
+
 // Deposit.java
 // Represents a deposit ATM transaction
 
 public class Deposit extends Transaction
 {
-   private double amount; // amount to deposit
+   private Euro amount; // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
@@ -30,13 +37,12 @@ public class Deposit extends Transaction
       amount = promptForDepositAmount(); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
-      if ( amount != CANCELED )
+      if ( amount.getValore() != CANCELED )
       {
          // request deposit envelope containing specified amount
          screen.displayMessage( 
             "\nPlease insert a deposit envelope containing " );
          screen.displayDollarAmount( amount );
-         screen.displayMessageLine( "." );
 
          // receive deposit envelope
          boolean envelopeReceived = depositSlot.isEnvelopeReceived();
@@ -50,7 +56,8 @@ public class Deposit extends Transaction
                "enclosed cash and your checks clear." );
             
             // credit account to reflect the deposit
-            bankDatabase.credit( getAccountNumber(), amount ); 
+            bankDatabase.credit( getAccountNumber(), amount );
+
          } // end if
          else // deposit envelope not received
          {
@@ -65,21 +72,22 @@ public class Deposit extends Transaction
    } // end method execute
 
    // prompt user to enter a deposit amount in cents 
-   private double promptForDepositAmount()
+   private Euro promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
 
       // display the prompt
       screen.displayMessage( "\nPlease enter a deposit amount in " + 
          "CENTS (or 0 to cancel): " );
-      int input = keypad.getInput(); // receive input of deposit amount
+      Euro input = new Euro(keypad.getInput()); // receive input of deposit amount
       
       // check whether the user canceled or entered a valid amount
-      if ( input == CANCELED ) 
-         return CANCELED;
+      if ( input.getValore()==CANCELED) 
+         return input;
       else
       {
-         return ( double ) input / 100; // return dollar amount 
+         Euro divisor = new Euro(1); //equivale a 100 centesimi
+         return input.dividi(divisor); // return euro amount // return dollar amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit

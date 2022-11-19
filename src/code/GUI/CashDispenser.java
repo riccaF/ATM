@@ -1,5 +1,8 @@
+package code.GUI;
 // CashDispenser.java
 // Represents the cash dispenser of the ATM
+
+import code.Business_logic.Euro;
 
 public class CashDispenser 
 {
@@ -14,16 +17,16 @@ public class CashDispenser
    } // end CashDispenser constructor
 
    // simulates dispensing of specified amount of cash
-   public void dispenseCash( int amount )
+   public void dispenseCash( Euro amount )
    {
-      int billsRequired = amount / 20; // number of $20 bills required
+      int billsRequired = (int) amount.getValore()/ 2000; // number of $20 bills required
       count -= billsRequired; // update the count of bills
    } // end method dispenseCash
 
    // indicates whether cash dispenser can dispense desired amount
-   public boolean isSufficientCashAvailable( int amount )
+   public boolean isSufficientCashAvailable( Euro amount )
    {
-      int billsRequired = amount / 20; // number of $20 bills required
+      int billsRequired = (int) amount.getValore() / 2000; // number of $20 bills required
 
       if ( count >= billsRequired  )
          return true; // enough bills available
