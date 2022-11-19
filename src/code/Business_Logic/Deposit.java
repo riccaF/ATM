@@ -1,9 +1,16 @@
+package code.Business_Logic;
+
+import code.Database.BankDatabase;
+import code.GUI.DepositSlot;
+import code.GUI.Keypad;
+import code.GUI.Screen;
+
 // Deposit.java
 // Represents a deposit ATM transaction
 
 public class Deposit extends Transaction
 {
-   private double amount; // amount to deposit
+   private Euro amount; // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
@@ -30,12 +37,12 @@ public class Deposit extends Transaction
       amount = promptForDepositAmount(); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
-      if ( amount != CANCELED )
+      if ( amount.getValore()!= CANCELED )
       {
          // request deposit envelope containing specified amount
          screen.displayMessage( 
             "\nPlease insert a deposit envelope containing " );
-         screen.displayDollarAmount( amount );
+         screen.displayEuroAmount( amount );
          screen.displayMessageLine( "." );
 
          // receive deposit envelope
@@ -65,7 +72,7 @@ public class Deposit extends Transaction
    } // end method execute
 
    // prompt user to enter a deposit amount in cents 
-   private double promptForDepositAmount()
+   private Euro promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
 
@@ -75,12 +82,13 @@ public class Deposit extends Transaction
       int input = keypad.getInput(); // receive input of deposit amount
       
       // check whether the user canceled or entered a valid amount
-      if ( input == CANCELED ) 
-         return CANCELED;
-      else
-      {
-         return ( double ) input / 100; // return dollar amount 
-      } // end else
+      if(input>=0)
+         return new Euro(0,input);
+      else{
+         screen.displayMessageLine( "\nERROR: deposit amount must be positive..." );
+         return new Euro(CANCELED);
+       } // return Euro amount 
+      // end else
    } // end method promptForDepositAmount
 } // end class Deposit
 
