@@ -17,17 +17,22 @@ public class BankDatabaseTest {
 
     @Test
     public void testCredit() {
-        Account acc = new Account(12345, 54321, new Euro(100.0), new Euro(1000));
-        Euro expectedBalance = new Euro(1500);
+        BankDatabase db = new BankDatabase();
+        Euro expectedBalance = new Euro(1700);
 
-        acc.credit(500.0);
+        db.credit(12345,500.0);
 
-        assertEquals(expectedBalance.getValore(), acc.getTotalBalance().getValore());
+        assertEquals(expectedBalance.getValore(), db.getTotalBalance(12345).getValore());
     }
 
     @Test
     public void testDebit() {
+        BankDatabase db = new BankDatabase();
+        Euro expectedBalance = new Euro(700);
 
+        db.debit(12345,500.0);
+
+        assertEquals(expectedBalance.getValore(), db.getTotalBalance(12345).getValore());
     }
 
     @Test
