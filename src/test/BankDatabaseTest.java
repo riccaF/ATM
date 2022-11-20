@@ -11,7 +11,6 @@ import code.Database.BankDatabase;
 public class BankDatabaseTest {
     @Test
     public void testAuthenticateUser() {
-        
 
     }
 
@@ -19,9 +18,7 @@ public class BankDatabaseTest {
     public void testCredit() {
         Account acc = new Account(12345, 54321, new Euro(100.0), new Euro(1000));
         Euro expectedBalance = new Euro(1500);
-
         acc.credit(500.0);
-
         assertEquals(expectedBalance.getValore(), acc.getTotalBalance().getValore());
     }
 
@@ -32,7 +29,10 @@ public class BankDatabaseTest {
 
     @Test
     public void testGetAvailableBalance() {
-
+        BankDatabase db = new BankDatabase();
+        Euro actual = db.getAvailableBalance(12345);
+        Euro expected = new Account(12345, 54321, new Euro(1000.0), new Euro(1200.0)).getAvailableBalance();
+        assertEquals(expected.getValore(), actual.getValore());
     }
 
     @Test
