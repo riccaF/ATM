@@ -1,3 +1,8 @@
+package Business_logic;
+
+import Database.BankDatabase;
+import GUI.Screen;
+
 // Transaction.java
 // Abstract superclass Transaction represents an ATM transaction
 

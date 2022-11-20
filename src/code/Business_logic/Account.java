@@ -1,3 +1,4 @@
+package Business_logic;
 // Account.java
 // Represents a bank account
 
@@ -5,12 +6,12 @@ public class Account
 {
    private int accountNumber; // account number
    private int pin; // PIN for authentication
-   private double availableBalance; // funds available for withdrawal
-   private double totalBalance; // funds available + pending deposits
+   private Euro availableBalance; // funds available for withdrawal   ; changed Double in "Euro"
+   private Euro totalBalance; // funds available + pending deposits   ; changed double in "Euro"
 
    // Account constructor initializes attributes
    public Account( int theAccountNumber, int thePIN, 
-      double theAvailableBalance, double theTotalBalance )
+      Euro theAvailableBalance, Euro theTotalBalance )               //Account(int,int,Euro,Euro)
    {
       accountNumber = theAccountNumber;
       pin = thePIN;
@@ -28,28 +29,28 @@ public class Account
    } // end method validatePIN
    
    // returns available balance
-   public double getAvailableBalance()
+   public Euro getAvailableBalance()               //changed double in Euro
    {
       return availableBalance;
    } // end getAvailableBalance
 
    // returns the total balance
-   public double getTotalBalance()
+   public Euro getTotalBalance()                   //changed double in Euro
    {
       return totalBalance;
    } // end method getTotalBalance
 
    // credits an amount to the account
-   public void credit( double amount )
+   public void credit( Euro amount )               //method credit(Euro)
    {
-      totalBalance += amount; // add to total balance
+      totalBalance.somma(amount); // add to total balance    ;  use function .somma() from class Euro
    } // end method credit
 
    // debits an amount from the account
-   public void debit( double amount )
+   public void debit( Euro amount )          //method debit(Euro)
    {
-      availableBalance -= amount; // subtract from available balance
-      totalBalance -= amount; // subtract from total balance
+      availableBalance.sottrai(amount);    // subtract from available balance       ; use function .sottrai() from class Euro
+      totalBalance.sottrai(amount); // subtract from total balance                 ;use function .sottrai() from class Euro
    } // end method debit
 
    // returns account number
