@@ -1,5 +1,14 @@
+package code.GUI;
 // ATM.java
 // Represents an automated teller machine
+
+import code.Business_logic.BalanceInquiry;
+import code.Business_logic.CashDispenser;
+import code.Business_logic.Deposit;
+import code.Business_logic.DepositSlot;
+import code.Business_logic.Transaction;
+import code.Business_logic.Withdrawal;
+import code.Database.BankDatabase;
 
 public class ATM 
 {
@@ -133,7 +142,7 @@ public class ATM
       {
          case BALANCE_INQUIRY: // create new BalanceInquiry transaction
             temp = new BalanceInquiry( 
-               currentAccountNumber, screen, bankDatabase );
+                     currentAccountNumber, screen, bankDatabase );
             break;
          case WITHDRAWAL: // create new Withdrawal transaction
             temp = new Withdrawal( currentAccountNumber, screen, 

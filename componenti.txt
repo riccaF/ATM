@@ -1,0 +1,5 @@
+Bianca Perasso S4994475
+Enrico Dondero S4838123
+Ramona Ferrari S4944096
+
+Nello sviluppo del progetto abbiamo usato erroneamente il branch feature anche per l'implementazione dei test.

@@ -1,9 +1,14 @@
+package code.Business_logic;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 
+import code.Database.BankDatabase;
+import code.GUI.Keypad;
+import code.GUI.Screen;
+
 public class Withdrawal extends Transaction
 {
-   private int amount; // amount to withdraw
+   private Euro amount = new Euro(0.0); // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
@@ -27,7 +32,7 @@ public class Withdrawal extends Transaction
    public void execute()
    {
       boolean cashDispensed = false; // cash was not dispensed yet
-      double availableBalance; // amount available for withdrawal
+      Euro availableBalance; // amount available for withdrawal
 
       // get references to bank database and screen
       BankDatabase bankDatabase = getBankDatabase(); 
@@ -37,20 +42,20 @@ public class Withdrawal extends Transaction
       do
       {
          // obtain a chosen withdrawal amount from the user 
-         amount = displayMenuOfAmounts();
+         amount.setValore( displayMenuOfAmounts());
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount != CANCELED )
+         if ( (amount.getValore()/100) != CANCELED )
          {
             // get available balance of account involved
             availableBalance = 
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount <= availableBalance )
+            if ( amount.minoreDi(availableBalance) )
             {   
                // check whether the cash dispenser has enough money
-               if ( cashDispenser.isSufficientCashAvailable( amount ) )
+               if ( cashDispenser.isSufficientCashAvailable( amount ))
                {
                   // update the account involved to reflect withdrawal
                   bankDatabase.debit( getAccountNumber(), amount );
@@ -85,25 +90,25 @@ public class Withdrawal extends Transaction
 
    // display a menu of withdrawal amounts and the option to cancel;
    // return the chosen amount or 0 if the user chooses to cancel
-   private int displayMenuOfAmounts()
+   private double displayMenuOfAmounts()
    {
-      int userChoice = 0; // local variable to store return value
+      double userChoice = 0.0; // local variable to store return value
 
       Screen screen = getScreen(); // get screen reference
       
       // array of amounts to correspond to menu numbers
-      int amounts[] = { 0, 20, 40, 60, 100, 200 };
+      double amounts[] = { 0.0, 20.0, 40.0, 60.0, 100.0, 200.0 };
 
       // loop while no valid choice has been made
-      while ( userChoice == 0 )
+      while ( userChoice == 0.0 )
       {
          // display the menu
          screen.displayMessageLine( "\nWithdrawal Menu:" );
-         screen.displayMessageLine( "1 - $20" );
-         screen.displayMessageLine( "2 - $40" );
-         screen.displayMessageLine( "3 - $60" );
-         screen.displayMessageLine( "4 - $100" );
-         screen.displayMessageLine( "5 - $200" );
+         screen.displayMessageLine( "1 - 20 euro" );
+         screen.displayMessageLine( "2 - 40 euro" );
+         screen.displayMessageLine( "3 - 60 euro" );
+         screen.displayMessageLine( "4 - 100 euro" );
+         screen.displayMessageLine( "5 - 200 euro" );
          screen.displayMessageLine( "6 - Cancel transaction" );
          screen.displayMessage( "\nChoose a withdrawal amount: " );
 
@@ -117,10 +122,10 @@ public class Withdrawal extends Transaction
             case 3: // corresponding amount from amounts array
             case 4:
             case 5:
-               userChoice = amounts[ input ]; // save user's choice
+               userChoice= amounts[ input ]; // save user's choice
                break;       
             case CANCELED: // the user chose to cancel
-               userChoice = CANCELED; // save user's choice
+               userChoice = (double)CANCELED; // save user's choice
                break;
             default: // the user did not enter a value from 1-6
                screen.displayMessageLine( 

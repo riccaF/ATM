@@ -1,15 +1,28 @@
-// DepositSlot.java
-// Represents the deposit slot of the ATM
+package code.GUI;
+// Screen.java
+// Represents the screen of the ATM
+import code.Business_logic.*;
 
-public class DepositSlot 
+public class Screen
 {
-   // indicates whether envelope was received (always returns true, 
-   // because this is only a software simulation of a real deposit slot)
-   public boolean isEnvelopeReceived()
+   // displays a message without a carriage return
+   public void displayMessage( String message ) 
    {
-      return true; // deposit envelope was received
-   } // end method isEnvelopeReceived
-} // end class DepositSlot
+      System.out.print( message ); 
+   } // end method displayMessage
+
+   // display a message with a carriage return
+   public void displayMessageLine( String message ) 
+   {
+      System.out.println( message );   
+   } // end method displayMessageLine
+
+   // display a Euro amount
+   public void displayEuroAmount( Euro amount )
+   {
+      System.out.print(amount.stampa());   
+   } // end method displayEuroAmount 
+} // end class Screen
 
 
 
