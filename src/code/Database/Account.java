@@ -1,16 +1,18 @@
+package code.Database;
 // Account.java
 // Represents a bank account
+import code.Buisness_logic.*;
 
 public class Account 
 {
    private int accountNumber; // account number
    private int pin; // PIN for authentication
-   private double availableBalance; // funds available for withdrawal
-   private double totalBalance; // funds available + pending deposits
+   private Euro availableBalance; // funds available for withdrawal
+   private Euro totalBalance; // funds available + pending deposits
 
    // Account constructor initializes attributes
    public Account( int theAccountNumber, int thePIN, 
-      double theAvailableBalance, double theTotalBalance )
+      Euro theAvailableBalance, Euro theTotalBalance )
    {
       accountNumber = theAccountNumber;
       pin = thePIN;
@@ -28,28 +30,31 @@ public class Account
    } // end method validatePIN
    
    // returns available balance
-   public double getAvailableBalance()
+   public Euro getAvailableBalance()
    {
       return availableBalance;
    } // end getAvailableBalance
 
    // returns the total balance
-   public double getTotalBalance()
+   public Euro getTotalBalance()
    {
       return totalBalance;
    } // end method getTotalBalance
 
    // credits an amount to the account
-   public void credit( double amount )
+   public void credit( Euro amount )
    {
-      totalBalance += amount; // add to total balance
+	  long sum=this.totalBalance.getValore()+amount.getValore();
+      this.totalBalance = new Euro((double)sum/100); // add to total balance
    } // end method credit
 
    // debits an amount from the account
-   public void debit( double amount )
+   public void debit( Euro amount )
    {
-      availableBalance -= amount; // subtract from available balance
-      totalBalance -= amount; // subtract from total balance
+	  long tb=this.totalBalance.getValore()-amount.getValore();
+	  long ab=this.availableBalance.getValore()-amount.getValore();
+      this.availableBalance = new Euro((double)ab/100); // subtract from available balance
+      this.totalBalance = new Euro((double)tb/100); // subtract from total balance
    } // end method debit
 
    // returns account number
