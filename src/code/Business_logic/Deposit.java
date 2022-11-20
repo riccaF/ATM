@@ -1,12 +1,19 @@
+package code.Business_logic;
+
+import code.Database.BankDatabase;
+import code.GUI.DepositSlot;
+import code.GUI.Keypad;
+import code.GUI.Screen;
+
 // Deposit.java
 // Represents a deposit ATM transaction
 
 public class Deposit extends Transaction
 {
-   private double amount; // amount to deposit
+   private Euro amount; // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
-   private final static int CANCELED = 0; // constant for cancel option
+   private final static Euro CANCELED = new Euro(0); // constant for cancel option
 
    // Deposit constructor
    public Deposit( int userAccountNumber, Screen atmScreen, 
@@ -65,7 +72,7 @@ public class Deposit extends Transaction
    } // end method execute
 
    // prompt user to enter a deposit amount in cents 
-   private double promptForDepositAmount()
+   private Euro promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
 
@@ -75,11 +82,11 @@ public class Deposit extends Transaction
       int input = keypad.getInput(); // receive input of deposit amount
       
       // check whether the user canceled or entered a valid amount
-      if ( input == CANCELED ) 
+      if ( new Euro(input) == CANCELED ) 
          return CANCELED;
       else
       {
-         return ( double ) input / 100; // return dollar amount 
+         return new Euro(input / 100.0); // return dollar amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit
