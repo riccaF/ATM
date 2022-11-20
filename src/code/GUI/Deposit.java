@@ -1,9 +1,13 @@
+package GUI;
 // Deposit.java
 // Represents a deposit ATM transaction
 
+import Business_logic.*;
+import Database.BankDatabase;
+
 public class Deposit extends Transaction
 {
-   private double amount; // amount to deposit
+   private Euro amount; // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
@@ -27,10 +31,10 @@ public class Deposit extends Transaction
       BankDatabase bankDatabase = getBankDatabase(); // get reference
       Screen screen = getScreen(); // get reference
 
-      amount = promptForDepositAmount(); // get deposit amount from user
+      amount = new Euro(promptForDepositAmount()); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
-      if ( amount != CANCELED )
+      if ( amount.getValore() != CANCELED )
       {
          // request deposit envelope containing specified amount
          screen.displayMessage( 
