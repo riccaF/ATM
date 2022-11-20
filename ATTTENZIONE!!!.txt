@@ -1,0 +1,19 @@
+Buona sera,
+il nostro gruppo ha avuto un problema.
+
+Purtroppo ci siamo accorti al momento della consegna di non aver fatto una fork 
+del suo progetto bensì un clone.
+Il progetto lo abbiamo e lo abbiamo svolto correttamente ma risulta essere 
+una mia repository pubblica su gitHub di cui non riusciamo a fare il pull 
+request al progetto di partenza.
+
+Dato che ci siamo accorti sabato dell'errore, ma nessuno dei due era disponibile 
+domenica per ricominciare il progetto da capo, abbiamo cercato di contattarla.
+Purtroppo non abbiamo avuto successo e quindi ho fatto questa fork con i file
+che abbiamo prodotto inisieme.
+Se vuole visionare il nostro lavoro, compresi i vari commit il link del progetto 
+è:    https://github.com/FedericoCardano/ATM
+
+Mi scuso dell'inconveniente.
+Cordiali Saluti.
+    Federico Cardano
