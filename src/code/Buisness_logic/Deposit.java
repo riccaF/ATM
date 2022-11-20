@@ -1,5 +1,11 @@
+package code.Buisness_logic;
 // Deposit.java
 // Represents a deposit ATM transaction
+
+import code.GUI.DepositSlot;
+import code.GUI.Keypad;
+import code.GUI.Screen;
+import code.Database.BankDatabase;
 
 public class Deposit extends Transaction
 {
@@ -35,7 +41,7 @@ public class Deposit extends Transaction
          // request deposit envelope containing specified amount
          screen.displayMessage( 
             "\nPlease insert a deposit envelope containing " );
-         screen.displayDollarAmount( amount );
+         screen.displayDollarAmount( new Euro(amount) );
          screen.displayMessageLine( "." );
 
          // receive deposit envelope

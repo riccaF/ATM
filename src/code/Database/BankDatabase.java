@@ -1,5 +1,8 @@
+package code.Database;
 // BankDatabase.java
 // Represents the bank account information database 
+
+import code.Buisness_logic.Euro;
 
 public class BankDatabase
 {
@@ -42,13 +45,13 @@ public class BankDatabase
    } // end method authenticateUser
 
    // return available balance of Account with specified account number
-   public double getAvailableBalance( int userAccountNumber )
+   public Euro getAvailableBalance( int userAccountNumber )
    {
       return getAccount( userAccountNumber ).getAvailableBalance();
    } // end method getAvailableBalance
 
    // return total balance of Account with specified account number
-   public double getTotalBalance( int userAccountNumber )
+   public Euro getTotalBalance( int userAccountNumber )
    {
       return getAccount( userAccountNumber ).getTotalBalance();
    } // end method getTotalBalance
