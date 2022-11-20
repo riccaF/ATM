@@ -1,3 +1,10 @@
+package GUI;
+import Business_logic.CashDispenser;
+import Business_logic.Deposit;
+import Business_logic.DepositSlot;
+import Business_logic.Transaction;
+import Business_logic.Withdrawal;
+import database.BankDatabase;
 // ATM.java
 // Represents an automated teller machine
 
