@@ -12,7 +12,7 @@ public class ATMCaseStudy
    {
       ATM theATM = new ATM();    
       theATM.run();
-   } // end main
+   } // end main1
 } // end class ATMCaseStudy 
 
 

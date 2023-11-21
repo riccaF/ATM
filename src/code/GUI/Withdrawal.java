@@ -45,7 +45,7 @@ public class Withdrawal extends Transaction
          amount = new Euro(displayMenuOfAmounts());
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount.getValore() != CANCELED )
+         if ( amount.getValore() != CANCELED * 100)
          {
             // get available balance of account involved
             availableBalance = 
