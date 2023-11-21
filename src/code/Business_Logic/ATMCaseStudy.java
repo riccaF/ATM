@@ -3,6 +3,8 @@
 
 package code.Business_Logic;
 
+import code.GUI.ATM;
+
 public class ATMCaseStudy
 {
    // main method creates and runs the ATM

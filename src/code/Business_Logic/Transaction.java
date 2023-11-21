@@ -3,6 +3,9 @@
 
 package code.Business_Logic;
 
+import code.GUI.Screen;
+import code.Database.BankDatabase;
+
 public abstract class Transaction
 {
    private int accountNumber; // indicates account involved

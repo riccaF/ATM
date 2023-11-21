@@ -3,6 +3,9 @@
 
 package code.GUI;
 
+import code.Business_Logic.*;
+import code.Database.*;
+
 public class ATM 
 {
    private boolean userAuthenticated; // whether user is authenticated
