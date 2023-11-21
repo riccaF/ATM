@@ -1,3 +1,5 @@
+package code;
+
 // ATMCaseStudy.java
 // Driver program for the ATM case study
 
