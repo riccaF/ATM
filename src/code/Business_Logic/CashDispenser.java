@@ -3,6 +3,8 @@
 
 package code.Business_Logic;
 
+import code.Database.*;
+
 public class CashDispenser 
 {
    // the default initial number of bills in the cash dispenser
