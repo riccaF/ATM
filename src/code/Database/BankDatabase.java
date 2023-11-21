@@ -1,7 +1,7 @@
 // BankDatabase.java
 // Represents the bank account information database 
 
-package code;
+package code.Database;
 
 public class BankDatabase
 {

@@ -1,7 +1,6 @@
-package code;
+package code.Database;
 
 public class Euro {
-
 
 	private long valore;
 

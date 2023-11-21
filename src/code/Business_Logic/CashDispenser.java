@@ -1,7 +1,7 @@
 // CashDispenser.java
 // Represents the cash dispenser of the ATM
 
-package code;
+package code.Business_Logic;
 
 public class CashDispenser 
 {

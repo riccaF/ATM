@@ -1,7 +1,7 @@
 // Keypad.java
 // Represents the keypad of the ATM
 
-package code;
+package code.Business_Logic;
 
 import java.util.Scanner; // program uses Scanner to obtain user input
 
