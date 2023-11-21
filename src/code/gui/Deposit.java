@@ -1,4 +1,8 @@
-package code;
+package code.gui;
+
+import code.database.BankDatabase;
+import code.database.Euro;
+import code.database.Transaction;
 
 // Deposit.java
 // Represents a deposit ATM transaction
@@ -37,7 +41,7 @@ public class Deposit extends Transaction
          // request deposit envelope containing specified amount
          screen.displayMessage( 
             "\nPlease insert a deposit envelope containing " );
-         screen.displayDollarAmount( amount );
+         screen.displayEuroAmount(amount);
          screen.displayMessageLine( "." );
 
          // receive deposit envelope
@@ -81,7 +85,7 @@ public class Deposit extends Transaction
          return new Euro(0);
       else
       {
-         return ( Euro ) new Euro(input / 100); // return dollar amount 
+         return ( Euro ) new Euro(input / 100); // return euro amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit

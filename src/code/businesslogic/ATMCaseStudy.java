@@ -1,4 +1,4 @@
-package code;
+package code.businesslogic;
 
 // ATMCaseStudy.java
 // Driver program for the ATM case study

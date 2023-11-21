@@ -1,4 +1,4 @@
-package code;
+package code.database;
 // BankDatabase.java
 // Represents the bank account information database 
 

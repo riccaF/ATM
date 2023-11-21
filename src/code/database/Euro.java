@@ -1,4 +1,4 @@
-package code;
+package code.database;
 
 public class Euro {
 
@@ -40,6 +40,10 @@ public class Euro {
 		if (valore <= e.getValore())
 			return true;
 		else return false;
+	}
+
+	public int getEuro() {
+		return (int)(this.valore / 100);
 	}
 
 	public String stampa(){

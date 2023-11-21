@@ -1,4 +1,6 @@
-package code;
+package code.gui;
+
+import code.database.Euro;
 
 // Screen.java
 // Represents the screen of the ATM
