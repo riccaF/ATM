@@ -18,7 +18,7 @@ public class Screen {
 
    // display a dollar amount
    public void displayDollarAmount(Euro amount) {
-      System.out.printf("$%,.2f", amount);
+      System.out.printf("$%,.2f", (double) amount.getValore());
    } // end method displayDollarAmount
 } // end class Screen
 

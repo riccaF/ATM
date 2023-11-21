@@ -2,6 +2,7 @@ package code.GUI;
 // ATM.java
 
 import code.Buisness_logic.CashDispenser;
+import code.Buisness_logic.DepositSlot;
 import code.Buisness_logic.Transaction;
 import code.Database.BankDatabase;
 

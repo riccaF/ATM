@@ -1,6 +1,7 @@
 package code.GUI;
 // Deposit.java
 
+import code.Buisness_logic.DepositSlot;
 import code.Buisness_logic.Euro;
 import code.Buisness_logic.Transaction;
 import code.Database.BankDatabase;
@@ -30,10 +31,10 @@ public class Deposit extends Transaction {
       BankDatabase bankDatabase = getBankDatabase(); // get reference
       Screen screen = getScreen(); // get reference
 
-      amount = promptForDepositAmount(); // get deposit amount from user
+      amount = new Euro(promptForDepositAmount()); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
-      if (!amount.equals(new Euro(CANCELED, 0))) {
+      if (amount.getValore() != CANCELED) {
          // request deposit envelope containing specified amount
          screen.displayMessage(
                "\nPlease insert a deposit envelope containing ");
@@ -66,7 +67,7 @@ public class Deposit extends Transaction {
    } // end method execute
 
    // prompt user to enter a deposit amount in cents
-   private Euro promptForDepositAmount() {
+   private double promptForDepositAmount() {
       Screen screen = getScreen(); // get reference to screen
 
       // display the prompt
@@ -76,9 +77,9 @@ public class Deposit extends Transaction {
 
       // check whether the user canceled or entered a valid amount
       if (input == CANCELED)
-         return new Euro(0, 0);
+         return CANCELED;
       else {
-         return new Euro(input / 100, input % 100); // return euro amount
+         return (double) input / 100; // return dollar amount
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit

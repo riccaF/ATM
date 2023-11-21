@@ -38,13 +38,13 @@ public class Account {
 
    // credits an amount to the account
    public void credit(Euro amount) {
-      totalBalance.somma(amount);
-   }// end method credit
+      totalBalance.somma(amount); // add to total balance
+   } // end method credit
 
    // debits an amount from the account
    public void debit(Euro amount) {
-      availableBalance.sottrai(amount);
-      totalBalance.sottrai(amount);
+      availableBalance.sottrai(amount); // subtract from available balance
+      totalBalance.sottrai(amount); // subtract from total balance
    } // end method debit
 
    // returns account number
