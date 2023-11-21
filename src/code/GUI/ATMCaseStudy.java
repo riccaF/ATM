@@ -1,22 +1,15 @@
-package code;
+package code.GUI;
+// ATMCaseStudy.java
 
-// Keypad.java
-// Represents the keypad of the ATM
-import java.util.Scanner; // program uses Scanner to obtain user input
+// Driver program for the ATM case study
 
-public class Keypad {
-   private Scanner input; // reads data from the command line
-
-   // no-argument constructor initializes the Scanner
-   public Keypad() {
-      input = new Scanner(System.in);
-   } // end no-argument Keypad constructor
-
-   // return an integer value entered by user
-   public int getInput() {
-      return input.nextInt(); // we assume that user enters an integer
-   } // end method getInput
-} // end class Keypad
+public class ATMCaseStudy {
+   // main method creates and runs the ATM
+   public static void main(String[] args) {
+      ATM theATM = new ATM();
+      theATM.run();
+   } // end main
+} // end class ATMCaseStudy
 
 /**************************************************************************
  * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and *

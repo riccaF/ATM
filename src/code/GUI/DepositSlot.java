@@ -1,24 +1,15 @@
-package code;
-// Screen.java
+package code.GUI;
+// DepositSlot.java
 
-// Represents the screen of the ATM
+// Represents the deposit slot of the ATM
 
-public class Screen {
-   // displays a message without a carriage return
-   public void displayMessage(String message) {
-      System.out.print(message);
-   } // end method displayMessage
-
-   // display a message with a carriage return
-   public void displayMessageLine(String message) {
-      System.out.println(message);
-   } // end method displayMessageLine
-
-   // display a dollar amount
-   public void displayDollarAmount(Euro amount) {
-      System.out.printf("$%,.2f", amount);
-   } // end method displayDollarAmount
-} // end class Screen
+public class DepositSlot {
+   // indicates whether envelope was received (always returns true,
+   // because this is only a software simulation of a real deposit slot)
+   public boolean isEnvelopeReceived() {
+      return true; // deposit envelope was received
+   } // end method isEnvelopeReceived
+} // end class DepositSlot
 
 /**************************************************************************
  * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and *

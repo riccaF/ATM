@@ -1,5 +1,10 @@
-package code;
+package code.GUI;
 // Withdrawal.java
+
+import code.Buisness_logic.CashDispenser;
+import code.Buisness_logic.Euro;
+import code.Buisness_logic.Transaction;
+import code.Database.BankDatabase;
 
 // Represents a withdrawal ATM transaction
 

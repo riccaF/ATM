@@ -1,5 +1,9 @@
-package code;
+package code.GUI;
 // Deposit.java
+
+import code.Buisness_logic.Euro;
+import code.Buisness_logic.Transaction;
+import code.Database.BankDatabase;
 
 // Represents a deposit ATM transaction
 

@@ -1,15 +1,26 @@
-package code;
-// ATMCaseStudy.java
+package code.GUI;
+// Screen.java
 
-// Driver program for the ATM case study
+import code.Buisness_logic.Euro;
 
-public class ATMCaseStudy {
-   // main method creates and runs the ATM
-   public static void main(String[] args) {
-      ATM theATM = new ATM();
-      theATM.run();
-   } // end main
-} // end class ATMCaseStudy
+// Represents the screen of the ATM
+
+public class Screen {
+   // displays a message without a carriage return
+   public void displayMessage(String message) {
+      System.out.print(message);
+   } // end method displayMessage
+
+   // display a message with a carriage return
+   public void displayMessageLine(String message) {
+      System.out.println(message);
+   } // end method displayMessageLine
+
+   // display a dollar amount
+   public void displayDollarAmount(Euro amount) {
+      System.out.printf("$%,.2f", amount);
+   } // end method displayDollarAmount
+} // end class Screen
 
 /**************************************************************************
  * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and *
