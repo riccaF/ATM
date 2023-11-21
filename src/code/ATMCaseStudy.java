@@ -1,6 +1,8 @@
 // ATMCaseStudy.java
 // Driver program for the ATM case study
 
+package code;
+
 public class ATMCaseStudy
 {
    // main method creates and runs the ATM

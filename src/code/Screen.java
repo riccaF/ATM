@@ -1,6 +1,8 @@
 // Screen.java
 // Represents the screen of the ATM
 
+package code;
+
 public class Screen
 {
    // displays a message without a carriage return
