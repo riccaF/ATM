@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ATMCaseStudy",
+            "request": "launch",
+            "mainClass": "code.Business_logic.ATMCaseStudy",
+            "projectName": "ATM_95d7eefc"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
