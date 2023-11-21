@@ -1,5 +1,8 @@
+package code.Database;
 // BankDatabase.java
 // Represents the bank account information database 
+
+import code.Buisness_logic.Account;
 
 public class BankDatabase
 {
