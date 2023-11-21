@@ -6,12 +6,12 @@ package code;
 public class Account {
    private int accountNumber; // account number
    private int pin; // PIN for authentication
-   private double availableBalance; // funds available for withdrawal
-   private double totalBalance; // funds available + pending deposits
+   private Euro availableBalance; // funds available for withdrawal
+   private Euro totalBalance; // funds available + pending deposits
 
    // Account constructor initializes attributes
    public Account(int theAccountNumber, int thePIN,
-         double theAvailableBalance, double theTotalBalance) {
+         Euro theAvailableBalance, Euro theTotalBalance) {
       accountNumber = theAccountNumber;
       pin = thePIN;
       availableBalance = theAvailableBalance;
@@ -27,24 +27,24 @@ public class Account {
    } // end method validatePIN
 
    // returns available balance
-   public double getAvailableBalance() {
+   public Euro getAvailableBalance() {
       return availableBalance;
    } // end getAvailableBalance
 
    // returns the total balance
-   public double getTotalBalance() {
+   public Euro getTotalBalance() {
       return totalBalance;
    } // end method getTotalBalance
 
    // credits an amount to the account
-   public void credit(double amount) {
-      totalBalance += amount; // add to total balance
-   } // end method credit
+   public void credit(Euro amount) {
+      totalBalance.somma(amount);
+   }// end method credit
 
    // debits an amount from the account
-   public void debit(double amount) {
-      availableBalance -= amount; // subtract from available balance
-      totalBalance -= amount; // subtract from total balance
+   public void debit(Euro amount) {
+      availableBalance.sottrai(amount);
+      totalBalance.sottrai(amount);
    } // end method debit
 
    // returns account number
