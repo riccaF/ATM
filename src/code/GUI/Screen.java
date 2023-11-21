@@ -22,7 +22,7 @@ public class Screen
    // display a dollar amount
    public void displayDollarAmount( Euro amount )
    {
-      System.out.printf( "$%,.2f", amount.stampa() );   
+      System.out.printf(amount.stampa());   
    } // end method displayDollarAmount 
 } // end class Screen
 
