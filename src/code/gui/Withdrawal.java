@@ -1,9 +1,15 @@
+package code.gui;
+
+import code.database.BankDatabase;
+import code.database.Euro;
+import code.database.Transaction;
+
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 
 public class Withdrawal extends Transaction
 {
-   private int amount; // amount to withdraw
+   private Euro amount; // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
@@ -27,7 +33,7 @@ public class Withdrawal extends Transaction
    public void execute()
    {
       boolean cashDispensed = false; // cash was not dispensed yet
-      double availableBalance; // amount available for withdrawal
+      Euro availableBalance; // amount available for withdrawal
 
       // get references to bank database and screen
       BankDatabase bankDatabase = getBankDatabase(); 
@@ -40,14 +46,14 @@ public class Withdrawal extends Transaction
          amount = displayMenuOfAmounts();
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount != CANCELED )
+         if ( !amount.ugualeA(new Euro(0)) )
          {
             // get available balance of account involved
             availableBalance = 
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount <= availableBalance )
+            if ( amount.minoreDi(availableBalance) || amount.ugualeA(availableBalance) )
             {   
                // check whether the cash dispenser has enough money
                if ( cashDispenser.isSufficientCashAvailable( amount ) )
@@ -85,7 +91,7 @@ public class Withdrawal extends Transaction
 
    // display a menu of withdrawal amounts and the option to cancel;
    // return the chosen amount or 0 if the user chooses to cancel
-   private int displayMenuOfAmounts()
+   private Euro displayMenuOfAmounts()
    {
       int userChoice = 0; // local variable to store return value
 
@@ -99,11 +105,11 @@ public class Withdrawal extends Transaction
       {
          // display the menu
          screen.displayMessageLine( "\nWithdrawal Menu:" );
-         screen.displayMessageLine( "1 - $20" );
-         screen.displayMessageLine( "2 - $40" );
-         screen.displayMessageLine( "3 - $60" );
-         screen.displayMessageLine( "4 - $100" );
-         screen.displayMessageLine( "5 - $200" );
+         screen.displayMessageLine( "1 - 20 euro" );
+         screen.displayMessageLine( "2 - 40 euro" );
+         screen.displayMessageLine( "3 - 60 euro" );
+         screen.displayMessageLine( "4 - 100 euro" );
+         screen.displayMessageLine( "5 - 200 euro" );
          screen.displayMessageLine( "6 - Cancel transaction" );
          screen.displayMessage( "\nChoose a withdrawal amount: " );
 
@@ -120,7 +126,7 @@ public class Withdrawal extends Transaction
                userChoice = amounts[ input ]; // save user's choice
                break;       
             case CANCELED: // the user chose to cancel
-               userChoice = CANCELED; // save user's choice
+               userChoice = 0; // save user's choice
                break;
             default: // the user did not enter a value from 1-6
                screen.displayMessageLine( 
@@ -128,7 +134,7 @@ public class Withdrawal extends Transaction
          } // end switch
       } // end while
 
-      return userChoice; // return withdrawal amount or CANCELED
+      return new Euro(userChoice); // return withdrawal amount or CANCELED
    } // end method displayMenuOfAmounts
 } // end class Withdrawal
 
