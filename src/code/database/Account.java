@@ -2,12 +2,14 @@ package code.database;
 // Account.java
 // Represents a bank account
 
+import code.BusinessLogic.Euro;
+
 public class Account 
 {
    private int accountNumber; // account number
    private int pin; // PIN for authentication
-   private double availableBalance; // funds available for withdrawal
-   private double totalBalance; // funds available + pending deposits
+   private Euro availableBalance; // funds available for withdrawal
+   private Euro totalBalance; // funds available + pending deposits
 
    // Account constructor initializes attributes
    public Account( int theAccountNumber, int thePIN, 
@@ -15,8 +17,8 @@ public class Account
    {
       accountNumber = theAccountNumber;
       pin = thePIN;
-      availableBalance = theAvailableBalance;
-      totalBalance = theTotalBalance;
+      availableBalance = new Euro(theAvailableBalance);
+      totalBalance = new Euro(theTotalBalance);
    } // end Account constructor
 
    // determines whether a user-specified PIN matches PIN in Account
@@ -31,27 +33,28 @@ public class Account
    // returns available balance
    public double getAvailableBalance()
    {
-      return availableBalance;
+      return availableBalance.getValore();
    } // end getAvailableBalance
 
    // returns the total balance
    public double getTotalBalance()
    {
-      return totalBalance;
+      return totalBalance.getValore();
    } // end method getTotalBalance
 
    // credits an amount to the account
    public void credit( double amount )
    {
-      totalBalance += amount; // add to total balance
+      totalBalance.somma(new Euro(amount)); // add to total balance
    } // end method credit
 
    // debits an amount from the account
    public void debit( double amount )
    {
-      availableBalance -= amount; // subtract from available balance
-      totalBalance -= amount; // subtract from total balance
-   } // end method debit
+      Euro temp = new Euro(amount);
+      availableBalance.sottrai(temp); // subtract from available balance
+      totalBalance.sottrai(temp); // subtract from total balance
+      } // end method debit
 
    // returns account number
    public int getAccountNumber()
