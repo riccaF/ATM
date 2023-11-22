@@ -1,5 +1,11 @@
+package code.gui;
 // ATM.java
 // Represents an automated teller machine
+
+import code.BusinessLogic.CashDispenser;
+import code.BusinessLogic.DepositSlot;
+import code.database.BankDatabase;
+import code.database.Transaction;
 
 public class ATM 
 {
