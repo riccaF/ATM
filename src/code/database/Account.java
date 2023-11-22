@@ -31,29 +31,28 @@ public class Account
    } // end method validatePIN
    
    // returns available balance
-   public double getAvailableBalance()
+   public Euro getAvailableBalance()
    {
-      return availableBalance.getValore();
+      return availableBalance;
    } // end getAvailableBalance
 
    // returns the total balance
-   public double getTotalBalance()
+   public Euro getTotalBalance()
    {
-      return totalBalance.getValore();
+      return totalBalance;
    } // end method getTotalBalance
 
    // credits an amount to the account
-   public void credit( double amount )
+   public void credit( Euro amount )
    {
-      totalBalance.somma(new Euro(amount)); // add to total balance
+      totalBalance.somma(amount); // add to total balance
    } // end method credit
 
    // debits an amount from the account
-   public void debit( double amount )
+   public void debit( Euro amount )
    {
-      Euro temp = new Euro(amount);
-      availableBalance.sottrai(temp); // subtract from available balance
-      totalBalance.sottrai(temp); // subtract from total balance
+      availableBalance.sottrai(amount); // subtract from available balance
+      totalBalance.sottrai(amount); // subtract from total balance
       } // end method debit
 
    // returns account number
