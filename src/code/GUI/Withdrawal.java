@@ -1,14 +1,15 @@
+package code.GUI;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 
-package code.GUI;
-
-import code.Business_Logic.*;
-import code.Database.*;
+import code.Business_Logic.CashDispenser;
+import code.Business_Logic.Transaction;
+import code.Database.BankDatabase;
+import code.Database.Euro;
 
 public class Withdrawal extends Transaction
 {
-   private Euro amount; // amount to withdraw
+   private int amount; // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
@@ -42,25 +43,25 @@ public class Withdrawal extends Transaction
       do
       {
          // obtain a chosen withdrawal amount from the user 
-         amount = new Euro(displayMenuOfAmounts());
+         amount = displayMenuOfAmounts();
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount.getValore() != CANCELED * 100)
+         if ( amount != CANCELED )
          {
             // get available balance of account involved
             availableBalance = 
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount.getValore() <= availableBalance.getValore() )
+            if ( amount <= availableBalance.getValore() )
             {   
                // check whether the cash dispenser has enough money
-               if ( cashDispenser.isSufficientCashAvailable( (int) amount.getValore() ) )
+               if ( cashDispenser.isSufficientCashAvailable( amount ) )
                {
                   // update the account involved to reflect withdrawal
-                  bankDatabase.debit( getAccountNumber(), amount );
+                  bankDatabase.debit( getAccountNumber(), new Euro(amount) );
                   
-                  cashDispenser.dispenseCash( (int) amount.getValore() ); // dispense cash
+                  cashDispenser.dispenseCash( amount ); // dispense cash
                   cashDispensed = true; // cash was dispensed
 
                   // instruct user to take cash

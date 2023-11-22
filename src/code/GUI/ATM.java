@@ -1,10 +1,11 @@
+package code.GUI;
 // ATM.java
 // Represents an automated teller machine
 
-package code.GUI;
-
-import code.Business_Logic.*;
-import code.Database.*;
+import code.Business_Logic.CashDispenser;
+import code.Business_Logic.DepositSlot;
+import code.Business_Logic.Transaction;
+import code.Database.BankDatabase;
 
 public class ATM 
 {

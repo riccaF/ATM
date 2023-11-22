@@ -1,7 +1,6 @@
+package code.Business_Logic;
 // ATMCaseStudy.java
 // Driver program for the ATM case study
-
-package code.Business_Logic;
 
 import code.GUI.ATM;
 
@@ -12,7 +11,7 @@ public class ATMCaseStudy
    {
       ATM theATM = new ATM();    
       theATM.run();
-   } // end main1
+   } // end main
 } // end class ATMCaseStudy 
 
 

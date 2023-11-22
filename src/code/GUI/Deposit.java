@@ -1,10 +1,11 @@
+package code.GUI;
 // Deposit.java
 // Represents a deposit ATM transaction
 
-package code.GUI;
-
-import code.Business_Logic.*;
-import code.Database.*;
+import code.Business_Logic.DepositSlot;
+import code.Business_Logic.Transaction;
+import code.Database.BankDatabase;
+import code.Database.Euro;
 
 public class Deposit extends Transaction
 {
@@ -32,7 +33,7 @@ public class Deposit extends Transaction
       BankDatabase bankDatabase = getBankDatabase(); // get reference
       Screen screen = getScreen(); // get reference
 
-      amount = new Euro(promptForDepositAmount());
+      amount = promptForDepositAmount(); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
       if ( amount.getValore() != CANCELED )
@@ -70,7 +71,7 @@ public class Deposit extends Transaction
    } // end method execute
 
    // prompt user to enter a deposit amount in cents 
-   private double promptForDepositAmount()
+   private Euro promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
 
@@ -81,10 +82,10 @@ public class Deposit extends Transaction
       
       // check whether the user canceled or entered a valid amount
       if ( input == CANCELED ) 
-         return CANCELED;
+         return new Euro(0);
       else
       {
-         return ( double ) input / 100; // return dollar amount 
+         return new Euro(input / 100); // return dollar amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit

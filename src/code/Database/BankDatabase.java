@@ -1,7 +1,6 @@
+package code.Database;
 // BankDatabase.java
 // Represents the bank account information database 
-
-package code.Database;
 
 public class BankDatabase
 {
@@ -10,14 +9,9 @@ public class BankDatabase
    // no-argument BankDatabase constructor initializes accounts
    public BankDatabase()
    {
-      Euro availableBalance1 = new Euro(1000);
-      Euro totalBalance1 = new Euro(1200);
-      Euro availableBalance2 = new Euro(200);
-      Euro totalBalance2 = new Euro(200);
-
       accounts = new Account[ 2 ]; // just 2 accounts for testing
-      accounts[ 0 ] = new Account( 12345, 54321, availableBalance1, totalBalance1 );
-      accounts[ 1 ] = new Account( 98765, 56789, availableBalance2, totalBalance2 );  
+      accounts[ 0 ] = new Account( 12345, 54321, new Euro(1000.0), new Euro(1200.0 ) );
+      accounts[ 1 ] = new Account( 98765, 56789, new Euro(200.0), new Euro(200.0 ) );  
    } // end no-argument BankDatabase constructor
    
    // retrieve Account object containing specified account number
