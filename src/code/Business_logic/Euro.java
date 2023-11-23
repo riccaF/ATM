@@ -12,8 +12,8 @@ public class Euro {
 		}
 	}
 
-	public Euro(double d) {
-		valore = (long)(d*100);
+	public Euro(Euro d) {
+		valore = (d.getValore()*100);
 	}
 
 	public long getValore() {
@@ -43,6 +43,6 @@ public class Euro {
 	}
 
 	public String stampa(){
-		return (double)valore/100 +" euro";
+		return getValore()/100 +" euro";
 	}
 }
