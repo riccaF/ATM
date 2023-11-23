@@ -42,6 +42,12 @@ public class Euro {
 		else return false;
 	}
 
+	public boolean maggioreDi(Euro e){
+		if (valore >= e.getValore())
+			return true;
+		else return false;
+	}
+
 	public String stampa(){
 		return (double)valore/100 +" euro";
 	}
