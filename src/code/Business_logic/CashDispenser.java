@@ -6,27 +6,27 @@ public class CashDispenser
 {
    // the default initial number of bills in the cash dispenser
    private final static int INITIAL_COUNT = 500;
-   private Euro count; // number of $20 bills remaining
+   private int count; // number of $20 bills remaining
    
    // no-argument CashDispenser constructor initializes count to default
    public CashDispenser()
    {
-      count = new Euro(INITIAL_COUNT); // set count attribute to default
+      count = INITIAL_COUNT; // set count attribute to default
    } // end CashDispenser constructor
 
    // simulates dispensing of specified amount of cash
    public void dispenseCash( Euro amount )
    {
-      Euro billsRequired = new Euro(amount.getValore() / 20); // number of $20 bills required
-      count.sottrai(billsRequired); // update the count of bills
+      int billsRequired = (int)(amount.getValore() / 20) / 100; // number of $20 bills required
+      count -= billsRequired; // update the count of bills
    } // end method dispenseCash
 
    // indicates whether cash dispenser can dispense desired amount
    public boolean isSufficientCashAvailable( Euro amount )
    {
-      Euro billsRequired = new Euro(amount.getValore() / 20); // number of $20 bills required
+      int billsRequired = (int)(amount.getValore() / 20) / 100; // number of $20 bills required
 
-      if ( count.maggioreDi(billsRequired))
+      if ( count >= billsRequired)
          return true; // enough bills available
       else 
          return false; // not enough bills available
