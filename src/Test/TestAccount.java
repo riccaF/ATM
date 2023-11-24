@@ -1,8 +1,9 @@
-
-
+package Test;
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 import code.Database.Account;
 import code.Business_logic.Euro;
 
@@ -14,6 +15,11 @@ public class TestAccount{
     public void setUp(){
         // Inizializza gli oggetti Account prima di ogni test
         account1 = new Account(12345, 54321, new Euro(1000), new Euro(1200));
+    }
+
+    @After
+    public void cleanUp(){
+        account1 = null;
     }
 
     @Test

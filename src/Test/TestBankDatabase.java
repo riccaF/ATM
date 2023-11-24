@@ -1,12 +1,14 @@
-package src;
+package Test;
 
-import code.Business_logic.Euro;
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 import code.Database.BankDatabase;
+import code.Business_logic.Euro;
 
-import static org.junit.Assert.*;
+
 
 public class TestBankDatabase {
 
@@ -16,6 +18,11 @@ public class TestBankDatabase {
     public void setUp() {
         // Inizializza la classe BankDatabase prima di ogni test
         bankDatabase = new BankDatabase();
+    }
+
+    @After
+    public void cleanUp(){
+        bankDatabase = null;
     }
 
     @Test

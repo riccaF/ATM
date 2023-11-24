@@ -1,8 +1,10 @@
 package Test;
 
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 import code.Business_logic.Euro;
 
 public class TestEuro {
@@ -15,6 +17,12 @@ public class TestEuro {
         // Inizializza gli oggetti Euro prima di ogni test
         euro1 = new Euro(10, 50);
         euro2 = new Euro(5, 25);
+    }
+
+    @After
+    public void cleanUp(){
+        euro1 = null;
+        euro2 = null;
     }
 
     @Test
