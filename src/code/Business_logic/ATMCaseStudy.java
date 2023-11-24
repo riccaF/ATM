@@ -7,6 +7,7 @@ public class ATMCaseStudy
    // main method creates and runs the ATM
    public static void main( String[] args )
    {
+      // First comment
       // Second comment
       ATM theATM = new ATM();    
       theATM.run();
