@@ -69,4 +69,3 @@ public class EuroTest {
     assertEquals("5.5 euro", euro.stampa());
   }
 }
-
