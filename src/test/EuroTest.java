@@ -53,4 +53,20 @@ public class EuroTest {
     assertFalse(euro1.ugualeA(euro3));
   }
 
+  @Test
+  public void testMinoreDi() {
+    Euro euro1 = new Euro(5, 50);
+    Euro euro2 = new Euro(8, 25);
+    assertTrue(euro1.minoreDi(euro2));
+
+    Euro euro3 = new Euro(3, 75);
+    assertFalse(euro1.minoreDi(euro3));
+  }
+
+  @Test
+  public void testStampa() {
+    Euro euro = new Euro(5, 50);
+    assertEquals("5.5 euro", euro.stampa());
+  }
 }
+
