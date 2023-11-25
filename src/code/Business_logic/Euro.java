@@ -22,7 +22,7 @@ public class Euro {
   }
 
   public Euro sottrai(Euro e) {
-    this.valore = this.valore - e.getValore();
+    this.valore -= e.getValore();
     return this;
   }
 
