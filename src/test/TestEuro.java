@@ -74,6 +74,6 @@ public class TestEuro {
     @Test
     public void testStampa() {
         Euro euro = new Euro(5, 50);
-        assertEquals("5,50 euro", euro.stampa());
+        assertEquals("5.50 euro", euro.stampa());
     }
 }

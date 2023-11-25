@@ -1,5 +1,7 @@
 package code.Business_logic;
 
+import java.util.Locale;
+
 public class Euro {
 
 	private long valore;
@@ -43,6 +45,6 @@ public class Euro {
 	}
 
 	public String stampa(){
-		return String.format("%.2f", (double)valore/100) +" euro";
+		return String.format(Locale.US, "%.2f", (double)valore/100) + " euro";
 	}
 }
