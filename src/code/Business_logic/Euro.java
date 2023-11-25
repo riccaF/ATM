@@ -47,4 +47,12 @@ public class Euro {
 	public String stampa(){
 		return String.format(Locale.US, "%.2f", (double)valore/100) + " euro";
 	}
+
+	public boolean equals(Object obj){
+		if (obj == null || getClass() != obj.getClass()) {
+			return false;
+		}
+
+		return this.valore == ((Euro) obj).valore;
+	}
 }
