@@ -1,0 +1,51 @@
+package code.GUI;// code.GUI.BalanceInquiry.java
+
+// Represents a balance inquiry code.GUI.ATM transaction
+
+import code.Business_logic.Transaction;
+import code.Database.BankDatabase;
+import code.GUI.Screen;
+
+public class BalanceInquiry extends Transaction {
+   // code.GUI.BalanceInquiry constructor
+   public BalanceInquiry(int userAccountNumber, Screen atmScreen,
+         BankDatabase atmBankDatabase) {
+      super(userAccountNumber, atmScreen, atmBankDatabase);
+   } // end code.GUI.BalanceInquiry constructor
+
+   // performs the transaction
+   public void execute() {
+      // get references to bank database and screen
+      BankDatabase bankDatabase = getBankDatabase();
+      Screen screen = getScreen();
+
+      // get the available balance for the account involved
+      Euro availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
+
+      // get the total balance for the account involved
+      Euro totalBalance = bankDatabase.getTotalBalance(getAccountNumber());
+
+      // display the balance information on the screen
+      screen.displayMessageLine("\nBalance Information:");
+      screen.displayMessage(" - Available balance: ");
+      screen.displayEuroAmount(availableBalance);
+      screen.displayMessage("\n - Total balance:     ");
+      screen.displayEuroAmount(totalBalance);
+      screen.displayMessageLine("");
+   } // end method execute
+} // end class code.GUI.BalanceInquiry
+
+/**************************************************************************
+ * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and *
+ * Pearson Education, Inc. All Rights Reserved. *
+ * *
+ * DISCLAIMER: The authors and publisher of this book have used their *
+ * best efforts in preparing the book. These efforts include the *
+ * development, research, and testing of the theories and programs *
+ * to determine their effectiveness. The authors and publisher make *
+ * no warranty of any kind, expressed or implied, with regard to these *
+ * programs or to the documentation contained in these books. The authors *
+ * and publisher shall not be liable in any event for incidental or *
+ * consequential damages in connection with, or arising out of, the *
+ * furnishing, performance, or use of these programs. *
+ *************************************************************************/
