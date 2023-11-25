@@ -52,8 +52,8 @@ public class Account
    // debits an amount from the account
    public void debit( Euro amount )
    {
-      availableBalance = availableBalance.sottrai(amount); // subtract from available balance
-      totalBalance = totalBalance.sottrai(amount); // subtract from total balance
+      availableBalance.sottrai(amount); // subtract from available balance
+       totalBalance.sottrai(amount); // subtract from total balance
    } // end method debit
 
    // returns account number
