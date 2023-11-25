@@ -42,7 +42,7 @@ public class Deposit extends Transaction
          // request deposit envelope containing specified amount
          screen.displayMessage( 
             "\nPlease insert a deposit envelope containing " );
-         screen.displayDollarAmount( amount.getValore() );
+         screen.displayDollarAmount( new Euro(amount.getValore()) );
          screen.displayMessageLine( "." );
 
          // receive deposit envelope
