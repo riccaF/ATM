@@ -1,4 +1,4 @@
-package code;
+package code.Database;
 
 // Account.java
 // Represents a bank account
@@ -11,7 +11,6 @@ public class Account
    private double availableBalance; // funds available for withdrawal
    private double totalBalance; // funds available + pending deposits
 
-   // Account constructor initializes attributes
    public Account( int theAccountNumber, int thePIN, 
       double theAvailableBalance, double theTotalBalance )
    {

@@ -1,4 +1,4 @@
-package code;
+package code.Database;
 
 import code.Business_logic.DepositSlot;
 import code.GUI.Keypad;

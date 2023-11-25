@@ -1,7 +1,7 @@
 package code.GUI;
 
-import code.BankDatabase;
-import code.Transaction;
+import code.Database.BankDatabase;
+import code.Database.Transaction;
 
 // BalanceInquiry.java
 // Represents a balance inquiry ATM transaction
