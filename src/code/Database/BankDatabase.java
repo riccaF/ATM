@@ -1,63 +1,72 @@
 package code.Database;// code.Database.BankDatabase.java
-// Represents the bank account information database 
+
+// Represents the bank account information database
 
 import code.GUI.Account;
-import code.GUI.Euro;
+import code.GUI.Euro; // importiamo la classe euro perché prima stavamo usando i double, adesso siamo passati agli euro
 
 public class BankDatabase {
-    private Account accounts[]; // array of Accounts
+   private Account accounts[]; // array of Accounts
+   // creiamo gli euro da usare come availableBalance e totalBalance
+   // primo account
+   private Euro availableBalance1 = new Euro(1000.0);
+   private Euro totalBalance1 = new Euro(1200.0);
 
-    // no-argument code.Database.BankDatabase constructor initializes accounts
-    public BankDatabase() {
-        accounts = new Account[2]; // just 2 accounts for testing
-        accounts[0] = new Account(12345, 54321, new Euro(1000.0), new Euro(1200.0));
-        accounts[1] = new Account(98765, 56789, new Euro(200.0), new Euro(200.0));
-    } // end no-argument code.Database.BankDatabase constructor
+   // secondo account
+   private Euro availableBalance2 = new Euro(200.0);
+   private Euro totalBalance2 = new Euro(200.0);
 
-    // retrieve code.GUI.Account object containing specified account number
-    private Account getAccount(long accountNumber) {
-        // loop through accounts searching for matching account number
-        for (Account currentAccount : accounts) {
-            // return current account if match found
-            if (currentAccount.getAccountNumber() == accountNumber)
-                return currentAccount;
-        } // end for
+   // no-argument code.Database.BankDatabase constructor initializes accounts
+   public BankDatabase() {
+      accounts = new Account[2]; // just 2 accounts for testing
+      accounts[0] = new Account(12345, 54321, availableBalance1, totalBalance1);
+      accounts[1] = new Account(98765, 56789, availableBalance2, totalBalance2);
+   } // end no-argument code.Database.BankDatabase constructor
 
-        return null; // if no matching account was found, return null
-    } // end method getAccount
+   // retrieve code.GUI.Account object containing specified account number
+   private Account getAccount(int accountNumber) {
+      // loop through accounts searching for matching account number
+      for (Account currentAccount : accounts) {
+         // return current account if match found
+         if (currentAccount.getAccountNumber() == accountNumber)
+            return currentAccount;
+      } // end for
 
-    // determine whether user-specified account number and PIN match
-    // those of an account in the database
-    public boolean authenticateUser(int userAccountNumber, int userPIN) {
-        // attempt to retrieve the account with the account number
-        Account userAccount = getAccount(userAccountNumber);
+      return null; // if no matching account was found, return null
+   } // end method getAccount
 
-        // if account exists, return result of code.GUI.Account method validatePIN
-        if (userAccount != null)
-            return userAccount.validatePIN(userPIN);
-        else
-            return false; // account number not found, so return false
-    } // end method authenticateUser
+   // determine whether user-specified account number and PIN match
+   // those of an account in the database
+   public boolean authenticateUser(int userAccountNumber, int userPIN) {
+      // attempt to retrieve the account with the account number
+      Account userAccount = getAccount(userAccountNumber);
 
-    // return available balance of code.GUI.Account with specified account number
-    public Euro getAvailableBalance(long userAccountNumber) {
-        return getAccount(userAccountNumber).getAvailableBalance();
-    } // end method getAvailableBalance
+      // if account exists, return result of code.GUI.Account method validatePIN
+      if (userAccount != null)
+         return userAccount.validatePIN(userPIN);
+      else
+         return false; // account number not found, so return false
+   } // end method authenticateUser
 
-    // return total balance of code.GUI.Account with specified account number
-    public Euro getTotalBalance(long userAccountNumber) {
-        return getAccount(userAccountNumber).getTotalBalance();
-    } // end method getTotalBalance
+   // return available balance of code.GUI.Account with specified account number
+   public Euro getAvailableBalance(int userAccountNumber) {
+      return getAccount(userAccountNumber).getAvailableBalance();
+   } // end method getAvailableBalance
 
-    // credit an amount to code.GUI.Account with specified account number
-    public void credit(long userAccountNumber, Euro amount) {
-        getAccount(userAccountNumber).credit(amount);
-    } // end method credit
+   // return total balance of code.GUI.Account with specified account number
+   public Euro getTotalBalance(int userAccountNumber) {
+      return getAccount(userAccountNumber).getTotalBalance();
+   } // end method getTotalBalance
 
-    // debit an amount from of code.GUI.Account with specified account number
-    public void debit(long userAccountNumber, Euro amount) {
-        getAccount(userAccountNumber).debit(amount);
-    } // end method debit
+   // credit an amount to code.GUI.Account with specified account number
+   public void credit(int userAccountNumber, Euro amount) {
+      getAccount(userAccountNumber).credit(amount);
+   } // end method credit
+
+   // debit an amount from of code.GUI.Account with specified account number
+   public void debit(int userAccountNumber, Euro amount) {
+      getAccount(userAccountNumber).debit(amount);
+   } // end method debit
 } // end class code.Database.BankDatabase
 
 

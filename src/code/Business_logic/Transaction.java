@@ -20,7 +20,7 @@ public abstract class Transaction
    } // end code.Business_logic.Transaction constructor
 
    // return account number 
-   public long getAccountNumber()
+   public int getAccountNumber()
    {
       return accountNumber; 
    } // end method getAccountNumber

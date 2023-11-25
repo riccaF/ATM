@@ -1,24 +1,24 @@
 package code.GUI;// code.GUI.Screen.java
+
 // Represents the screen of the code.GUI.ATM
 
-public class Screen
-{
+import code.GUI.Euro; // come mai mi dice che is never used?
+
+public class Screen {
    // displays a message without a carriage return
-   public void displayMessage( String message ) 
-   {
-      System.out.print( message ); 
+   public void displayMessage(String message) {
+      System.out.print(message);
    } // end method displayMessage
 
    // display a message with a carriage return
-   public void displayMessageLine( String message ) 
-   {
-      System.out.println( message );   
+   public void displayMessageLine(String message) {
+      System.out.println(message);
    } // end method displayMessageLine
 
    // display a dollar amount
    public void displayEuroAmount(Euro amount) {
-      System.out.println(amount.stampa());
-  } // end method displayEuroAmount
+      amount.stampa();
+   } // end method displayEuroAmount
 } // end class code.GUI.Screen
 
 
