@@ -1,26 +1,18 @@
 package code.Database;// code.Database.BankDatabase.java
 
-// Represents the bank account information database
+// Represents the bank account information database 
 
 import code.GUI.Account;
-import code.GUI.Euro; // importiamo la classe euro perché prima stavamo usando i double, adesso siamo passati agli euro
+import code.GUI.Euro;
 
 public class BankDatabase {
    private Account accounts[]; // array of Accounts
-   // creiamo gli euro da usare come availableBalance e totalBalance
-   // primo account
-   private Euro availableBalance1 = new Euro(1000.0);
-   private Euro totalBalance1 = new Euro(1200.0);
-
-   // secondo account
-   private Euro availableBalance2 = new Euro(200.0);
-   private Euro totalBalance2 = new Euro(200.0);
 
    // no-argument code.Database.BankDatabase constructor initializes accounts
    public BankDatabase() {
       accounts = new Account[2]; // just 2 accounts for testing
-      accounts[0] = new Account(12345, 54321, availableBalance1, totalBalance1);
-      accounts[1] = new Account(98765, 56789, availableBalance2, totalBalance2);
+      accounts[0] = new Account(12345, 54321, new Euro(1000.0), new Euro(1200.0));
+      accounts[1] = new Account(98765, 56789, new Euro(200.0), new Euro(200.0));
    } // end no-argument code.Database.BankDatabase constructor
 
    // retrieve code.GUI.Account object containing specified account number
@@ -69,19 +61,17 @@ public class BankDatabase {
    } // end method debit
 } // end class code.Database.BankDatabase
 
-
-
 /**************************************************************************
- * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
+ * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and *
+ * Pearson Education, Inc. All Rights Reserved. *
+ * *
+ * DISCLAIMER: The authors and publisher of this book have used their *
+ * best efforts in preparing the book. These efforts include the *
+ * development, research, and testing of the theories and programs *
+ * to determine their effectiveness. The authors and publisher make *
+ * no warranty of any kind, expressed or implied, with regard to these *
  * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
+ * and publisher shall not be liable in any event for incidental or *
+ * consequential damages in connection with, or arising out of, the *
+ * furnishing, performance, or use of these programs. *
  *************************************************************************/

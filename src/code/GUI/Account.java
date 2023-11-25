@@ -2,7 +2,8 @@ package code.GUI;// code.GUI.Account.java
 
 // Represents a bank account
 
-public class Account {
+public class Account { // tutte le volte in cui double è usato come valuta, va cambiato con il datatype
+                       // appena creato Euro
    private int accountNumber; // account number
    private int pin; // PIN for authentication
    private Euro availableBalance; // funds available for withdrawal
@@ -25,27 +26,27 @@ public class Account {
          return false;
    } // end method validatePIN
 
-   // returns available balance
+   // returns available balance in Euro
    public Euro getAvailableBalance() {
       return availableBalance;
    } // end getAvailableBalance
 
-   // returns the total balance
+   // returns the total balance in Euro
    public Euro getTotalBalance() {
       return totalBalance;
    } // end method getTotalBalance
 
    // credits an amount to the account
    public void credit(Euro amount) {
-      amount.somma(totalBalance); // add to total balance
+      // add to total balance
+      totalBalance.somma(amount);
    } // end method credit
 
    // debits an amount from the account
    public void debit(Euro amount) {
-      // subtract from available balance
-      availableBalance.sottrai(amount);
-      // subtract from total balance
-      totalBalance.sottrai(amount);
+      availableBalance.sottrai(amount);// subtract from available balance
+      totalBalance.sottrai(amount); // subtract from total balance
+
    } // end method debit
 
    // returns account number
@@ -54,18 +55,17 @@ public class Account {
    } // end method getAccountNumber
 } // end class code.GUI.Account
 
-
 /**************************************************************************
- * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
+ * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and *
+ * Pearson Education, Inc. All Rights Reserved. *
+ * *
+ * DISCLAIMER: The authors and publisher of this book have used their *
+ * best efforts in preparing the book. These efforts include the *
+ * development, research, and testing of the theories and programs *
+ * to determine their effectiveness. The authors and publisher make *
+ * no warranty of any kind, expressed or implied, with regard to these *
  * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
+ * and publisher shall not be liable in any event for incidental or *
+ * consequential damages in connection with, or arising out of, the *
+ * furnishing, performance, or use of these programs. *
  *************************************************************************/

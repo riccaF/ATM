@@ -26,8 +26,8 @@ public class TestEuro {
     @Test
     public void testCostruttoreConValoriNegativi() {
         Euro euroNegativo = new Euro(-5, 50);
-        assertEquals(-550, euroNegativo.getValore());
-    }
+        assertEquals(-450, euroNegativo.getValore());
+    } // deve fallire (controlliamo -450 ma il valore è -550)
 
     @Test
     public void testCostruttoreConDouble() {
@@ -74,7 +74,7 @@ public class TestEuro {
     }
 
     @ParameterizedTest
-    @CsvSource({"5.50, 550", "3.75, 375", "7.80, 780"})
+    @CsvSource({ "5.50, 550", "3.75, 375", "7.80, 780" })
     public void testCostruttoreConDoubleParametrizzato(double valoreDouble, long valoreCentesimi) {
         Euro euroParametrizzato = new Euro(valoreDouble);
         assertEquals(valoreCentesimi, euroParametrizzato.getValore());

@@ -6,7 +6,7 @@ import code.Database.BankDatabase;
 import code.Business_logic.Transaction;
 
 public class Deposit extends Transaction {
-   private Euro amount; // amount to deposit
+   private Euro amount; // amount to deposit in Euro
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
@@ -74,12 +74,10 @@ public class Deposit extends Transaction {
 
       // check whether the user canceled or entered a valid amount
       if (input == CANCELED)
-         return new Euro(0); // non so se sia la cosa più intelligente da fare ma è stato l'unico modo che mi
-                             // è venuto in mente per uscirne
+         return new Euro(0);
       else {
-         return new Euro((double) input / 100); // return Euro amount, lui faceva: (double) input / 100;
-         // return an Euro object
-         // return new Euro((double) input / 100);
+         return new Euro(input / 100); // return dollar amount
+
       } // end else
    } // end method promptForDepositAmount
 } // end class code.GUI.Deposit
