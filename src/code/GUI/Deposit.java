@@ -86,7 +86,12 @@ public class Deposit extends Transaction
          return new Euro(0); //CANCELED
       else
       {
-         return new Euro((long)Math.floor(input/100), input%100); // return dollar amount 
+         return new Euro((long)Math.floor(input/100), input%100); 
+         /* abbiamo fatto in modo che si possa costruire un oggetto 
+         euro partendo da un long, abbiamo fatto il cast a long poichè
+         Math.floor resituisce un double ma siccome ci interessa la 
+         parte intera non dovrebbe essere un problema  */
+
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit
