@@ -1,9 +1,16 @@
+package code.Database;
+
+import code.Business_logic.DepositSlot;
+import code.Business_logic.Euro;
+import code.GUI.Keypad;
+import code.GUI.Screen;
+
 // Deposit.java
 // Represents a deposit ATM transaction
 
 public class Deposit extends Transaction
 {
-   private double amount; // amount to deposit
+   private Euro amount; // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
@@ -30,12 +37,12 @@ public class Deposit extends Transaction
       amount = promptForDepositAmount(); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
-      if ( amount != CANCELED )
+      if ( amount.getValore() != CANCELED )
       {
          // request deposit envelope containing specified amount
          screen.displayMessage( 
             "\nPlease insert a deposit envelope containing " );
-         screen.displayDollarAmount( amount );
+         screen.displayDollarAmount( new Euro(amount.getValore()) );
          screen.displayMessageLine( "." );
 
          // receive deposit envelope
@@ -65,7 +72,7 @@ public class Deposit extends Transaction
    } // end method execute
 
    // prompt user to enter a deposit amount in cents 
-   private double promptForDepositAmount()
+   private Euro promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
 
@@ -76,10 +83,10 @@ public class Deposit extends Transaction
       
       // check whether the user canceled or entered a valid amount
       if ( input == CANCELED ) 
-         return CANCELED;
+         return new Euro(CANCELED);
       else
       {
-         return ( double ) input / 100; // return dollar amount 
+         return new Euro(input / 100); // return dollar amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit
