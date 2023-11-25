@@ -2,9 +2,9 @@ name: JUnit tests
 
 on:
   push:
-    branches: [ "*" ]
+    branches: [ "test" ]
   pull_request:
-    branches: [ "*" ]
+    branches: [ "test" ]
 
 jobs:
   build:
