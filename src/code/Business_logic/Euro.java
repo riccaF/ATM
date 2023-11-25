@@ -43,6 +43,6 @@ public class Euro {
 	}
 
 	public String stampa(){
-		return (double)valore/100 +" euro";
+		return String.format("%.2f", (double)valore/100) +" euro";
 	}
 }
