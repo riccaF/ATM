@@ -1,5 +1,8 @@
-// Withdrawal.java
-// Represents a withdrawal ATM transaction
+package code.GUI;// code.GUI.Withdrawal.java
+// Represents a withdrawal code.GUI.ATM transaction
+
+import code.Database.BankDatabase;
+import code.Business_logic.Transaction;
 
 public class Withdrawal extends Transaction
 {
@@ -10,10 +13,10 @@ public class Withdrawal extends Transaction
    // constant corresponding to menu option to cancel
    private final static int CANCELED = 6;
 
-   // Withdrawal constructor
-   public Withdrawal( int userAccountNumber, Screen atmScreen, 
-      BankDatabase atmBankDatabase, Keypad atmKeypad, 
-      CashDispenser atmCashDispenser )
+   // code.GUI.Withdrawal constructor
+   public Withdrawal(int userAccountNumber, Screen atmScreen,
+                     BankDatabase atmBankDatabase, Keypad atmKeypad,
+                     CashDispenser atmCashDispenser )
    {
       // initialize superclass variables
       super( userAccountNumber, atmScreen, atmBankDatabase );
@@ -21,7 +24,7 @@ public class Withdrawal extends Transaction
       // initialize references to keypad and cash dispenser
       keypad = atmKeypad;
       cashDispenser = atmCashDispenser;
-   } // end Withdrawal constructor
+   } // end code.GUI.Withdrawal constructor
 
    // perform transaction
    public void execute()
@@ -64,7 +67,7 @@ public class Withdrawal extends Transaction
                } // end if
                else // cash dispenser does not have enough cash
                   screen.displayMessageLine( 
-                     "\nInsufficient cash available in the ATM." +
+                     "\nInsufficient cash available in the code.GUI.ATM." +
                      "\n\nPlease choose a smaller amount." );
             } // end if
             else // not enough money available in user's account
@@ -98,7 +101,7 @@ public class Withdrawal extends Transaction
       while ( userChoice == 0 )
       {
          // display the menu
-         screen.displayMessageLine( "\nWithdrawal Menu:" );
+         screen.displayMessageLine( "\ncode.GUI.Withdrawal Menu:" );
          screen.displayMessageLine( "1 - $20" );
          screen.displayMessageLine( "2 - $40" );
          screen.displayMessageLine( "3 - $60" );
@@ -130,7 +133,7 @@ public class Withdrawal extends Transaction
 
       return userChoice; // return withdrawal amount or CANCELED
    } // end method displayMenuOfAmounts
-} // end class Withdrawal
+} // end class code.GUI.Withdrawal
 
 
 

@@ -1,5 +1,5 @@
-// CashDispenser.java
-// Represents the cash dispenser of the ATM
+package code.GUI;// code.GUI.CashDispenser.java
+// Represents the cash dispenser of the code.GUI.ATM
 
 public class CashDispenser 
 {
@@ -7,11 +7,11 @@ public class CashDispenser
    private final static int INITIAL_COUNT = 500;
    private int count; // number of $20 bills remaining
    
-   // no-argument CashDispenser constructor initializes count to default
+   // no-argument code.GUI.CashDispenser constructor initializes count to default
    public CashDispenser()
    {
       count = INITIAL_COUNT; // set count attribute to default
-   } // end CashDispenser constructor
+   } // end code.GUI.CashDispenser constructor
 
    // simulates dispensing of specified amount of cash
    public void dispenseCash( int amount )
@@ -30,7 +30,7 @@ public class CashDispenser
       else 
          return false; // not enough bills available
    } // end method isSufficientCashAvailable
-} // end class CashDispenser
+} // end class code.GUI.CashDispenser
 
 
 

@@ -1,14 +1,17 @@
-// ATM.java
+package code.GUI;// code.GUI.ATM.java
 // Represents an automated teller machine
 
-public class ATM 
+import code.Business_logic.Transaction;
+import code.Database.BankDatabase;
+
+public class ATM
 {
    private boolean userAuthenticated; // whether user is authenticated
    private int currentAccountNumber; // current user's account number
-   private Screen screen; // ATM's screen
-   private Keypad keypad; // ATM's keypad
-   private CashDispenser cashDispenser; // ATM's cash dispenser
-   private DepositSlot depositSlot; // ATM's deposit slot
+   private Screen screen; // code.GUI.ATM's screen
+   private Keypad keypad; // code.GUI.ATM's keypad
+   private CashDispenser cashDispenser; // code.GUI.ATM's cash dispenser
+   private DepositSlot depositSlot; // code.GUI.ATM's deposit slot
    private BankDatabase bankDatabase; // account information database
 
    // constants corresponding to main menu options
@@ -17,7 +20,7 @@ public class ATM
    private static final int DEPOSIT = 3;
    private static final int EXIT = 4;
 
-   // no-argument ATM constructor initializes instance variables
+   // no-argument code.GUI.ATM constructor initializes instance variables
    public ATM() 
    {
       userAuthenticated = false; // user is not authenticated to start
@@ -27,9 +30,9 @@ public class ATM
       cashDispenser = new CashDispenser(); // create cash dispenser
       depositSlot = new DepositSlot(); // create deposit slot
       bankDatabase = new BankDatabase(); // create acct info database
-   } // end no-argument ATM constructor
+   } // end no-argument code.GUI.ATM constructor
 
-   // start ATM 
+   // start code.GUI.ATM
    public void run()
    {
       // welcome and authenticate user; perform transactions
@@ -43,8 +46,8 @@ public class ATM
          } // end while
          
          performTransactions(); // user is now authenticated 
-         userAuthenticated = false; // reset before next ATM session
-         currentAccountNumber = 0; // reset before next ATM session 
+         userAuthenticated = false; // reset before next code.GUI.ATM session
+         currentAccountNumber = 0; // reset before next code.GUI.ATM session
          screen.displayMessageLine( "\nThank you! Goodbye!" );
       } // end while   
    } // end method run
@@ -101,7 +104,7 @@ public class ATM
                break; 
             case EXIT: // user chose to terminate session
                screen.displayMessageLine( "\nExiting the system..." );
-               userExited = true; // this ATM session should end
+               userExited = true; // this code.GUI.ATM session should end
                break;
             default: // user did not enter an integer from 1-4
                screen.displayMessageLine( 
@@ -117,37 +120,37 @@ public class ATM
       screen.displayMessageLine( "\nMain menu:" );
       screen.displayMessageLine( "1 - View my balance" );
       screen.displayMessageLine( "2 - Withdraw cash" );
-      screen.displayMessageLine( "3 - Deposit funds" );
+      screen.displayMessageLine( "3 - code.GUI.Deposit funds" );
       screen.displayMessageLine( "4 - Exit\n" );
       screen.displayMessage( "Enter a choice: " );
       return keypad.getInput(); // return user's selection
    } // end method displayMainMenu
          
-   // return object of specified Transaction subclass
+   // return object of specified code.Business_logic.Transaction subclass
    private Transaction createTransaction( int type )
    {
-      Transaction temp = null; // temporary Transaction variable
+      Transaction temp = null; // temporary code.Business_logic.Transaction variable
       
-      // determine which type of Transaction to create     
+      // determine which type of code.Business_logic.Transaction to create
       switch ( type )
       {
-         case BALANCE_INQUIRY: // create new BalanceInquiry transaction
+         case BALANCE_INQUIRY: // create new code.GUI.BalanceInquiry transaction
             temp = new BalanceInquiry( 
                currentAccountNumber, screen, bankDatabase );
             break;
-         case WITHDRAWAL: // create new Withdrawal transaction
-            temp = new Withdrawal( currentAccountNumber, screen, 
+         case WITHDRAWAL: // create new code.GUI.Withdrawal transaction
+            temp = new Withdrawal( currentAccountNumber, screen,
                bankDatabase, keypad, cashDispenser );
             break; 
-         case DEPOSIT: // create new Deposit transaction
-            temp = new Deposit( currentAccountNumber, screen, 
+         case DEPOSIT: // create new code.GUI.Deposit transaction
+            temp = new Deposit( currentAccountNumber, screen,
                bankDatabase, keypad, depositSlot );
             break;
       } // end switch
 
       return temp; // return the newly created object
    } // end method createTransaction
-} // end class ATM
+} // end class code.GUI.ATM
 
 
 

@@ -1,5 +1,8 @@
-// Deposit.java
-// Represents a deposit ATM transaction
+package code.GUI;// code.GUI.Deposit.java
+// Represents a deposit code.GUI.ATM transaction
+
+import code.Database.BankDatabase;
+import code.Business_logic.Transaction;
 
 public class Deposit extends Transaction
 {
@@ -8,10 +11,10 @@ public class Deposit extends Transaction
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
 
-   // Deposit constructor
-   public Deposit( int userAccountNumber, Screen atmScreen, 
-      BankDatabase atmBankDatabase, Keypad atmKeypad, 
-      DepositSlot atmDepositSlot )
+   // code.GUI.Deposit constructor
+   public Deposit(int userAccountNumber, Screen atmScreen,
+                  BankDatabase atmBankDatabase, Keypad atmKeypad,
+                  DepositSlot atmDepositSlot )
    {
       // initialize superclass variables
       super( userAccountNumber, atmScreen, atmBankDatabase );
@@ -19,7 +22,7 @@ public class Deposit extends Transaction
       // initialize references to keypad and deposit slot
       keypad = atmKeypad;
       depositSlot = atmDepositSlot;
-   } // end Deposit constructor
+   } // end code.GUI.Deposit constructor
 
    // perform transaction
    public void execute()
@@ -55,7 +58,7 @@ public class Deposit extends Transaction
          else // deposit envelope not received
          {
             screen.displayMessageLine( "\nYou did not insert an " +
-               "envelope, so the ATM has canceled your transaction." );
+               "envelope, so the code.GUI.ATM has canceled your transaction." );
          } // end else
       } // end if 
       else // user canceled instead of entering amount
@@ -82,7 +85,7 @@ public class Deposit extends Transaction
          return ( double ) input / 100; // return dollar amount 
       } // end else
    } // end method promptForDepositAmount
-} // end class Deposit
+} // end class code.GUI.Deposit
 
 
 

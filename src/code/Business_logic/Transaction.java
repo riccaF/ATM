@@ -1,20 +1,23 @@
-// Transaction.java
-// Abstract superclass Transaction represents an ATM transaction
+package code.Business_logic;// code.Business_logic.Transaction.java
+// Abstract superclass code.Business_logic.Transaction represents an code.GUI.ATM transaction
+
+import code.Database.BankDatabase;
+import code.GUI.Screen;
 
 public abstract class Transaction
 {
    private int accountNumber; // indicates account involved
-   private Screen screen; // ATM's screen
+   private Screen screen; // code.GUI.ATM's screen
    private BankDatabase bankDatabase; // account info database
 
-   // Transaction constructor invoked by subclasses using super()
-   public Transaction( int userAccountNumber, Screen atmScreen, 
+   // code.Business_logic.Transaction constructor invoked by subclasses using super()
+   public Transaction( int userAccountNumber, Screen atmScreen,
       BankDatabase atmBankDatabase )
    {
       accountNumber = userAccountNumber;
       screen = atmScreen;
       bankDatabase = atmBankDatabase;
-   } // end Transaction constructor
+   } // end code.Business_logic.Transaction constructor
 
    // return account number 
    public int getAccountNumber()
@@ -36,7 +39,7 @@ public abstract class Transaction
 
    // perform the transaction (overridden by each subclass)
    abstract public void execute();
-} // end class Transaction
+} // end class code.Business_logic.Transaction
 
 
 
