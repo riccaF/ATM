@@ -1,4 +1,4 @@
-package code;
+import code.ATM;
 
 // ATMCaseStudy.java
 // Driver program for the ATM case study
