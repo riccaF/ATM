@@ -3,6 +3,7 @@ package code.GUI;
 // Represents a balance inquiry ATM transaction
 
 import code.Business_logic.Transaction;
+import code.Business_logic.Euro;
 import code.Database.BankDatabase;
 
 public class BalanceInquiry extends Transaction
@@ -22,11 +23,11 @@ public class BalanceInquiry extends Transaction
       Screen screen = getScreen();
 
       // get the available balance for the account involved
-      double availableBalance = 
+      Euro availableBalance = 
          bankDatabase.getAvailableBalance( getAccountNumber() );
 
       // get the total balance for the account involved
-      double totalBalance = 
+      Euro totalBalance = 
          bankDatabase.getTotalBalance( getAccountNumber() );
       
       // display the balance information on the screen
