@@ -1,5 +1,7 @@
 package code;
 
+import code.GUI.Screen;
+
 // Transaction.java
 // Abstract superclass Transaction represents an ATM transaction
 

@@ -1,5 +1,7 @@
-package code;
+package code.GUI;
 
+import code.BankDatabase;
+import code.Transaction;
 import code.Business_logic.CashDispenser;
 
 // Withdrawal.java

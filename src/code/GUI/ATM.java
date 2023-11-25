@@ -1,5 +1,8 @@
-package code;
+package code.GUI;
 
+import code.BankDatabase;
+import code.Deposit;
+import code.Transaction;
 import code.Business_logic.CashDispenser;
 import code.Business_logic.DepositSlot;
 
