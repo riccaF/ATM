@@ -1,5 +1,7 @@
 package code;
 
+import code.Business_logic.DepositSlot;
+
 // Deposit.java
 // Represents a deposit ATM transaction
 

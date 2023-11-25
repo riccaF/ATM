@@ -1,5 +1,8 @@
 package code;
 
+import code.Business_logic.CashDispenser;
+import code.Business_logic.DepositSlot;
+
 // ATM.java
 // Represents an automated teller machine
 
