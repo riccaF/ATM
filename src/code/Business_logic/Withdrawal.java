@@ -9,7 +9,7 @@ import code.GUI.Screen;
 
 public class Withdrawal extends Transaction
 {
-   private Euro amount; // amount to withdraw
+   private int amount; // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
@@ -46,22 +46,22 @@ public class Withdrawal extends Transaction
          amount = displayMenuOfAmounts();
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount.getValore() != CANCELED )
+         if ( amount != CANCELED )
          {
             // get available balance of account involved
             availableBalance = 
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount.minoreDi(availableBalance) )
+            if ( amount <= availableBalance.getValore() )
             {   
                // check whether the cash dispenser has enough money
-               if ( cashDispenser.isSufficientCashAvailable( (int) amount.getValore() ) )
+               if ( cashDispenser.isSufficientCashAvailable( amount ) )
                {
                   // update the account involved to reflect withdrawal
                   bankDatabase.debit( getAccountNumber(), amount );
                   
-                  cashDispenser.dispenseCash( (int) amount.getValore() ); // dispense cash
+                  cashDispenser.dispenseCash( amount ); // dispense cash
                   cashDispensed = true; // cash was dispensed
 
                   // instruct user to take cash
@@ -91,7 +91,7 @@ public class Withdrawal extends Transaction
 
    // display a menu of withdrawal amounts and the option to cancel;
    // return the chosen amount or 0 if the user chooses to cancel
-   private Euro displayMenuOfAmounts()
+   private int displayMenuOfAmounts()
    {
       int userChoice = 0; // local variable to store return value
 
@@ -134,8 +134,7 @@ public class Withdrawal extends Transaction
          } // end switch
       } // end while
 
-      Euro result = new Euro (userChoice / 100, userChoice % 100);
-      return result; // return withdrawal amount or CANCELED
+      return userChoice; // return withdrawal amount or CANCELED
    } // end method displayMenuOfAmounts
 } // end class Withdrawal
 

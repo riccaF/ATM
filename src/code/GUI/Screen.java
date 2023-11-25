@@ -1,9 +1,8 @@
 package code.GUI;
-
-import code.Business_logic.Euro;
-
 // Screen.java
 // Represents the screen of the ATM
+
+import code.Business_logic.Euro;
 
 public class Screen
 {
@@ -22,7 +21,7 @@ public class Screen
    // display a dollar amount
    public void displayDollarAmount( Euro amount )
    {
-      System.out.printf( "$%,.2f", amount );   
+      System.out.printf( amount.stampa() );   
    } // end method displayDollarAmount 
 } // end class Screen
 

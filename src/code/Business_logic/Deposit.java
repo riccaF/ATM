@@ -9,10 +9,10 @@ import code.GUI.Screen;
 
 public class Deposit extends Transaction
 {
-   private Euro amount; // amount to deposit
+   private double amount; // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
-   private final static Euro CANCELED = new Euro(0, 0); // constant for cancel option
+   private final static int CANCELED = 0; // constant for cancel option
 
    // Deposit constructor
    public Deposit( int userAccountNumber, Screen atmScreen, 
@@ -41,7 +41,7 @@ public class Deposit extends Transaction
          // request deposit envelope containing specified amount
          screen.displayMessage( 
             "\nPlease insert a deposit envelope containing " );
-         screen.displayDollarAmount( amount );
+         screen.displayDollarAmount( new Euro((long)amount/100 , (long)amount%100));
          screen.displayMessageLine( "." );
 
          // receive deposit envelope
@@ -71,7 +71,7 @@ public class Deposit extends Transaction
    } // end method execute
 
    // prompt user to enter a deposit amount in cents 
-   private Euro promptForDepositAmount()
+   private double promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
 
@@ -79,15 +79,13 @@ public class Deposit extends Transaction
       screen.displayMessage( "\nPlease enter a deposit amount in " + 
          "CENTS (or 0 to cancel): " );
       int input = keypad.getInput(); // receive input of deposit amount
-
-      Euro amount = new Euro(input / 100, input % 100);
       
       // check whether the user canceled or entered a valid amount
-      if ( amount == CANCELED ) 
+      if ( input == CANCELED ) 
          return CANCELED;
       else
       {
-         return amount; // return dollar amount 
+         return ( double ) input; // return dollar amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit
