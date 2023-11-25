@@ -34,9 +34,9 @@ public class BalanceInquiry extends Transaction
       // display the balance information on the screen
       screen.displayMessageLine( "\nBalance Information:" );
       screen.displayMessage( " - Available balance: " ); 
-      screen.displayDollarAmount( availableBalance.getValore() );
+      screen.displayDollarAmount( new Euro(availableBalance.getValore()) );
       screen.displayMessage( "\n - Total balance:     " );
-      screen.displayDollarAmount( totalBalance.getValore() );
+      screen.displayDollarAmount( new Euro(totalBalance.getValore()) );
       screen.displayMessageLine( "" );
    } // end method execute
 } // end class BalanceInquiry
