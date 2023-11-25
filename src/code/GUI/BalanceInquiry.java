@@ -5,38 +5,33 @@ import code.Business_logic.Transaction;
 import code.Database.BankDatabase;
 import code.GUI.Screen;
 
-public class BalanceInquiry extends Transaction
-{
-   // code.GUI.BalanceInquiry constructor
-   public BalanceInquiry( int userAccountNumber, Screen atmScreen, 
-      BankDatabase atmBankDatabase )
-   {
-      super( userAccountNumber, atmScreen, atmBankDatabase );
-   } // end code.GUI.BalanceInquiry constructor
+public class BalanceInquiry extends Transaction {
+    // code.GUI.BalanceInquiry constructor
+    public BalanceInquiry(int userAccountNumber, Screen atmScreen,
+                           BankDatabase atmBankDatabase) {
+        super(userAccountNumber, atmScreen, atmBankDatabase);
+    } // end code.GUI.BalanceInquiry constructor
 
-   // performs the transaction
-   public void execute()
-   {
-      // get references to bank database and screen
-      BankDatabase bankDatabase = getBankDatabase();
-      Screen screen = getScreen();
+    // performs the transaction
+    public void execute() {
+        // get references to bank database and screen
+        BankDatabase bankDatabase = getBankDatabase();
+        Screen screen = getScreen();
 
-      // get the available balance for the account involved
-      double availableBalance = 
-         bankDatabase.getAvailableBalance( getAccountNumber() );
+        // get the available balance for the account involved
+        Euro availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
 
-      // get the total balance for the account involved
-      double totalBalance = 
-         bankDatabase.getTotalBalance( getAccountNumber() );
-      
-      // display the balance information on the screen
-      screen.displayMessageLine( "\nBalance Information:" );
-      screen.displayMessage( " - Available balance: " ); 
-      screen.displayDollarAmount( availableBalance );
-      screen.displayMessage( "\n - Total balance:     " );
-      screen.displayDollarAmount( totalBalance );
-      screen.displayMessageLine( "" );
-   } // end method execute
+        // get the total balance for the account involved
+        Euro totalBalance = bankDatabase.getTotalBalance(getAccountNumber());
+
+        // display the balance information on the screen
+        screen.displayMessageLine("\nBalance Information:");
+        screen.displayMessage(" - Available balance: ");
+        screen.displayEuroAmount(availableBalance);
+        screen.displayMessage("\n - Total balance:     ");
+        screen.displayEuroAmount(totalBalance);
+        screen.displayMessageLine("");
+    } // end method execute
 } // end class code.GUI.BalanceInquiry
 
 

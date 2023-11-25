@@ -1,35 +1,32 @@
 package code.GUI;// code.GUI.CashDispenser.java
 // Represents the cash dispenser of the code.GUI.ATM
 
-public class CashDispenser 
-{
-   // the default initial number of bills in the cash dispenser
-   private final static int INITIAL_COUNT = 500;
-   private int count; // number of $20 bills remaining
-   
-   // no-argument code.GUI.CashDispenser constructor initializes count to default
-   public CashDispenser()
-   {
-      count = INITIAL_COUNT; // set count attribute to default
-   } // end code.GUI.CashDispenser constructor
+public class CashDispenser {
+    // the default initial number of bills in the cash dispenser
+    private final static int INITIAL_COUNT = 500;
+    private int count; // number of $20 bills remaining
 
-   // simulates dispensing of specified amount of cash
-   public void dispenseCash( int amount )
-   {
-      int billsRequired = amount / 20; // number of $20 bills required
-      count -= billsRequired; // update the count of bills
-   } // end method dispenseCash
+    // no-argument code.GUI.CashDispenser constructor initializes count to default
+    public CashDispenser() {
+        count = INITIAL_COUNT; // set count attribute to default
+    } // end code.GUI.CashDispenser constructor
 
-   // indicates whether cash dispenser can dispense desired amount
-   public boolean isSufficientCashAvailable( int amount )
-   {
-      int billsRequired = amount / 20; // number of $20 bills required
+    // simulates dispensing of specified amount of cash
+    public void dispenseCash(Euro amount) {
+        long billsRequired = amount.getValore() / 20; // number of $20 bills required
+        count -= billsRequired; // update the count of bills
+    } // end method dispenseCash
 
-      if ( count >= billsRequired  )
-         return true; // enough bills available
-      else 
-         return false; // not enough bills available
-   } // end method isSufficientCashAvailable
+    // indicates whether cash dispenser can dispense desired amount
+    public boolean isSufficientCashAvailable(Euro amount) {
+        long billsRequired = amount.getValore() / 20; // number of $20 bills required
+
+        if (count >= billsRequired) {
+            return true; // enough bills available
+        } else {
+            return false; // not enough bills available
+        }
+    } // end method isSufficientCashAvailable
 } // end class code.GUI.CashDispenser
 
 

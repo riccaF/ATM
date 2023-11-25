@@ -1,62 +1,51 @@
 package code.GUI;// code.GUI.Account.java
 // Represents a bank account
 
-public class Account 
-{
-   private int accountNumber; // account number
-   private int pin; // PIN for authentication
-   private double availableBalance; // funds available for withdrawal
-   private double totalBalance; // funds available + pending deposits
+public class Account {
+    private int accountNumber; // account number
+    private int pin; // PIN for authentication
+    private Euro availableBalance; // funds available for withdrawal
+    private Euro totalBalance; // funds available + pending deposits
 
-   // code.GUI.Account constructor initializes attributes
-   public Account( int theAccountNumber, int thePIN, 
-      double theAvailableBalance, double theTotalBalance )
-   {
-      accountNumber = theAccountNumber;
-      pin = thePIN;
-      availableBalance = theAvailableBalance;
-      totalBalance = theTotalBalance;
-   } // end code.GUI.Account constructor
+    // code.GUI.Account constructor initializes attributes
+    public Account(int theAccountNumber, int thePIN,
+                   Euro theAvailableBalance, Euro theTotalBalance) {
+        accountNumber = theAccountNumber;
+        pin = thePIN;
+        availableBalance = theAvailableBalance;
+        totalBalance = theTotalBalance;
+    } // end code.GUI.Account constructor
 
-   // determines whether a user-specified PIN matches PIN in code.GUI.Account
-   public boolean validatePIN( int userPIN )
-   {
-      if ( userPIN == pin )
-         return true;
-      else
-         return false;
-   } // end method validatePIN
-   
-   // returns available balance
-   public double getAvailableBalance()
-   {
-      return availableBalance;
-   } // end getAvailableBalance
+    // determines whether a user-specified PIN matches PIN in code.GUI.Account
+    public boolean validatePIN(int userPIN) {
+        return userPIN == pin;
+    } // end method validatePIN
 
-   // returns the total balance
-   public double getTotalBalance()
-   {
-      return totalBalance;
-   } // end method getTotalBalance
+    // returns available balance
+    public Euro getAvailableBalance() {
+        return availableBalance;
+    } // end getAvailableBalance
 
-   // credits an amount to the account
-   public void credit( double amount )
-   {
-      totalBalance += amount; // add to total balance
-   } // end method credit
+    // returns the total balance
+    public Euro getTotalBalance() {
+        return totalBalance;
+    } // end method getTotalBalance
 
-   // debits an amount from the account
-   public void debit( double amount )
-   {
-      availableBalance -= amount; // subtract from available balance
-      totalBalance -= amount; // subtract from total balance
-   } // end method debit
+    // credits an amount to the account
+    public void credit(Euro amount) {
+        totalBalance = totalBalance.somma(amount); // add to total balance
+    } // end method credit
 
-   // returns account number
-   public int getAccountNumber()
-   {
-      return accountNumber;  
-   } // end method getAccountNumber
+    // debits an amount from the account
+    public void debit(Euro amount) {
+        availableBalance = availableBalance.sottrai(amount); // subtract from available balance
+        totalBalance = totalBalance.sottrai(amount); // subtract from total balance
+    } // end method debit
+
+    // returns account number
+    public int getAccountNumber() {
+        return accountNumber;
+    } // end method getAccountNumber
 } // end class code.GUI.Account
 
 

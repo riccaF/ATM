@@ -16,10 +16,9 @@ public class Screen
    } // end method displayMessageLine
 
    // display a dollar amount
-   public void displayDollarAmount( double amount )
-   {
-      System.out.printf( "$%,.2f", amount );   
-   } // end method displayDollarAmount 
+   public void displayEuroAmount(Euro amount) {
+      System.out.println(amount.stampa());
+  } // end method displayEuroAmount
 } // end class code.GUI.Screen
 
 

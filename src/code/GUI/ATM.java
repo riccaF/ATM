@@ -120,7 +120,7 @@ public class ATM
       screen.displayMessageLine( "\nMain menu:" );
       screen.displayMessageLine( "1 - View my balance" );
       screen.displayMessageLine( "2 - Withdraw cash" );
-      screen.displayMessageLine( "3 - code.GUI.Deposit funds" );
+      screen.displayMessageLine( "3 - Deposit funds" );
       screen.displayMessageLine( "4 - Exit\n" );
       screen.displayMessage( "Enter a choice: " );
       return keypad.getInput(); // return user's selection

@@ -26,7 +26,7 @@ public class TestEuro {
     @Test
     public void testCostruttoreConValoriNegativi() {
         Euro euroNegativo = new Euro(-5, 50);
-        assertEquals(-450, euroNegativo.getValore());
+        assertEquals(-550, euroNegativo.getValore());
     }
 
     @Test
