@@ -3,7 +3,7 @@ package test;
 import static org.junit.Assert.*;
 import org.junit.*;
 
-import code.Euro;
+import code.Business_logic.Euro;
 
 public class TestEuro {
     @Test
