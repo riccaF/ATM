@@ -1,5 +1,7 @@
 package code.GUI;
 
+import code.Business_logic.Euro;
+
 // Screen.java
 // Represents the screen of the ATM
 
