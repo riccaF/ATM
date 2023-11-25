@@ -3,8 +3,8 @@ package test;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import code.Business_logic.Euro;
 import code.Database.Account;
+import code.Business_logic.Euro;
 
 
 public class AccountTest {

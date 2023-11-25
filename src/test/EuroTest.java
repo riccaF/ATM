@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 import code.Business_logic.Euro;
 
 public class EuroTest {
-
   @Test
   public void testCostruttoreConDueParametriPositivi() {
     Euro euro = new Euro(5, 50);

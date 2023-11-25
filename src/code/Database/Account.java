@@ -5,7 +5,6 @@ import code.Business_logic.Euro;
 // Account.java
 // Represents a bank account
 
-
 public class Account 
 {
    private int accountNumber; // account number
@@ -25,10 +24,8 @@ public class Account
    // determines whether a user-specified PIN matches PIN in Account
    public boolean validatePIN( int userPIN )
    {
-      if ( userPIN == pin )
-         return true;
-      else
-         return false;
+      if ( userPIN == pin ) return true;
+      else return false;
    } // end method validatePIN
    
    // returns available balance
@@ -53,7 +50,7 @@ public class Account
    public void debit( Euro amount )
    {
       availableBalance.sottrai(amount); // subtract from available balance
-       totalBalance.sottrai(amount); // subtract from total balance
+      totalBalance.sottrai(amount); // subtract from total balance
    } // end method debit
 
    // returns account number

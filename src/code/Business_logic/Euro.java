@@ -39,5 +39,4 @@ public class Euro {
   public String stampa(){
     return (double)valore/100 +" euro";
   }
-
 }
