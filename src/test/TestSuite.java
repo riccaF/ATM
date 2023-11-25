@@ -4,10 +4,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-
 @Suite.SuiteClasses({
    TestEuro.class,
-   TestAccount.class
+   TestAccount.class,
+   TestBankDatabase.class
 })
 
 public class TestSuite {
