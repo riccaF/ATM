@@ -23,3 +23,5 @@ Avviando il main() della classe ATMCaseStudy, viene richiesto l’inserimento de
 - Numero di conto = 98765, PIN = 56789
 
 ---------------------------------------------------------------------------
+
+This line was written to make an artificial conflict in test branch
