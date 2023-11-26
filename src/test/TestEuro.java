@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import Business_logic.Euro;
 
+
+
 public class TestEuro {
 
     private Euro euro1;
