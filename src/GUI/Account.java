@@ -1,4 +1,4 @@
-package code;
+package GUI;
 // Account.java
 // Represents a bank account
 
