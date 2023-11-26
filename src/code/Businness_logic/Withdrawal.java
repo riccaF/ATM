@@ -1,9 +1,14 @@
+package code.Businness_logic;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 
+import code.Database.BankDatabase;
+import code.GUI.Keypad;
+import code.GUI.Screen;
+
 public class Withdrawal extends Transaction
 {
-   private int amount; // amount to withdraw
+   private Euro amount; // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
@@ -27,7 +32,7 @@ public class Withdrawal extends Transaction
    public void execute()
    {
       boolean cashDispensed = false; // cash was not dispensed yet
-      double availableBalance; // amount available for withdrawal
+      Euro availableBalance; // amount available for withdrawal
 
       // get references to bank database and screen
       BankDatabase bankDatabase = getBankDatabase(); 
@@ -40,14 +45,14 @@ public class Withdrawal extends Transaction
          amount = displayMenuOfAmounts();
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount != CANCELED )
+         if ( amount.getValore() != CANCELED )
          {
             // get available balance of account involved
             availableBalance = 
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount <= availableBalance )
+            if ( amount.getValore() <= availableBalance.getValore() )
             {   
                // check whether the cash dispenser has enough money
                if ( cashDispenser.isSufficientCashAvailable( amount ) )
@@ -85,14 +90,14 @@ public class Withdrawal extends Transaction
 
    // display a menu of withdrawal amounts and the option to cancel;
    // return the chosen amount or 0 if the user chooses to cancel
-   private int displayMenuOfAmounts()
+   private Euro displayMenuOfAmounts()
    {
-      int userChoice = 0; // local variable to store return value
+      double userChoice = 0; // local variable to store return value
 
       Screen screen = getScreen(); // get screen reference
       
       // array of amounts to correspond to menu numbers
-      int amounts[] = { 0, 20, 40, 60, 100, 200 };
+      double amounts[] = { 0.0, 20.0, 40.0, 60.0, 100.0, 200.0 };
 
       // loop while no valid choice has been made
       while ( userChoice == 0 )
@@ -128,7 +133,7 @@ public class Withdrawal extends Transaction
          } // end switch
       } // end while
 
-      return userChoice; // return withdrawal amount or CANCELED
+      return new Euro(userChoice); // return withdrawal amount or CANCELED
    } // end method displayMenuOfAmounts
 } // end class Withdrawal
 
