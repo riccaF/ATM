@@ -24,4 +24,4 @@ Avviando il main() della classe ATMCaseStudy, viene richiesto l’inserimento de
 
 ---------------------------------------------------------------------------
 
-This line was written to make an artificial conflict
+Conflict successfully resolved
