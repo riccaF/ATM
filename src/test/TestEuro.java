@@ -47,8 +47,7 @@ public class TestEuro {
 
     @Test
     public void testSomma() {
-        Euro euro1 = new Euro(10, 50);
-        Euro euro2 = new Euro(15, 25);
+
         Euro expectedSum = new Euro(25, 75);
         
         Euro actualSum = euro1.somma(euro2);
@@ -58,8 +57,7 @@ public class TestEuro {
 
     @Test
     public void testSottrai() {
-        Euro euro1 = new Euro(15, 25);
-        Euro euro2 = new Euro(10, 50);
+       
         Euro expectedDifference = new Euro(4, 75);
         
         Euro actualDifference = euro1.sottrai(euro2);
@@ -69,18 +67,16 @@ public class TestEuro {
 
     @Test
     public void testStampa() {
-        Euro euro = new Euro(10, 50);
+        
         String expectedOutput = "10.5 euro";
         
-        String actualOutput = euro.stampa();
+        String actualOutput = euro1.stampa();
         
         assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
     public void testUgualeA() {
-        Euro euro1 = new Euro(10, 50);
-        Euro euro2 = new Euro(10, 50);
         
         assertTrue(euro1.ugualeA(euro2));
         assertFalse(euro1.ugualeA(new Euro(10, 25)));
