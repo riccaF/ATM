@@ -47,38 +47,53 @@ public class TestEuro {
 
     @Test
     public void testSomma() {
-
-        Euro expectedSum = new Euro(25, 75);
-        
-        Euro actualSum = euro1.somma(euro2);
-        
-        assertEquals(expectedSum.getValore(), actualSum.getValore());
+        // Test case 1: euro1 + euro2
+        Euro expectedSum1 = new Euro(25, 75);
+        Euro actualSum1 = euro1.somma(euro2);
+        assertEquals(expectedSum1.getValore(), actualSum1.getValore());
+        //Test case 2: euro2 + euro3
+        Euro expectedSum2 = new Euro(35, 25);
+        Euro actualSum2 = euro2.somma(euro3);
+        assertEquals(expectedSum2.getValore(), actualSum2.getValore());
+        //Test case 3: euro3 + euro4
+        Euro expectedSum3 = new Euro(50, 00);
+        Euro actualSum3 = euro3.somma(euro4);
+        assertEquals(expectedSum3.getValore(), actualSum3.getValore());
     }
 
     @Test
     public void testSottrai() {
-       
-        Euro expectedDifference = new Euro(4, 75);
+        //Test case 1: euro2 - euro1 (euro2 > euro1) 
+        Euro expectedDiff1 = new Euro(4, 75);
+        Euro actualDiff1 = euro2.sottrai(euro1);
+        assertEquals(expectedDiff1.getValore(), actualDiff1.getValore());
+
         
-        Euro actualDifference = euro1.sottrai(euro2);
-        
-        assertEquals(expectedDifference.getValore(), actualDifference.getValore());
     }
 
     @Test
     public void testStampa() {
         
         String expectedOutput = "10.5 euro";
+        String expectedOutput1 = "15.25 euro";
+        String expectedOutput2 = "20.0 euro";
+        String expectedOutput3 = "30.0 euro";
         
         String actualOutput = euro1.stampa();
+        String actualOutput1 = euro2.stampa();
+        String actualOutput2 = euro3.stampa();
+        String actualOutput3 = euro4.stampa();
         
         assertEquals(expectedOutput, actualOutput);
+        assertEquals(expectedOutput1, actualOutput1);
+        assertEquals(expectedOutput2, actualOutput2);
+        assertEquals(expectedOutput3, actualOutput3);
     }
 
     @Test
     public void testUgualeA() {
         
-        assertTrue(euro1.ugualeA(euro2));
+        assertFalse(euro1.ugualeA(euro2));
         assertFalse(euro1.ugualeA(new Euro(10, 25)));
     }
 }
