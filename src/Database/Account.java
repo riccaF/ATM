@@ -1,4 +1,4 @@
-package code;
+package Database;
 // Account.java
 // Represents a bank account
 

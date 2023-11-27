@@ -1,4 +1,4 @@
-package code;
+package Business_logic;
 public class Euro {
 
 
