@@ -20,25 +20,25 @@ public class TestAccount {
     // Test for validatePIN //
 
     @Test
-    public void validatePINTest () {
+    public void validatePINOKTest () {
         assertTrue( account.validatePIN( 54321 ) );
     }
 
     @Test
-    public void validatePINFailureTest () {
+    public void validatePINFAILURETest () {
         assertFalse( account.validatePIN( 123213 ) );
     }
 
 
     // Test for getAvailableBalace //
-
+    
     @Test
-    public void getAvailableBalanceTest () {
+    public void getAvailableBalanceOKTest () {
         assertTrue( new Euro(1000).ugualeA(account.getAvailableBalance()) );
     }
 
     @Test
-    public void getAvailableBalanceFailureTest () {
+    public void getAvailableBalanceFAILURETest () {
         assertFalse( new Euro(100).ugualeA(account.getAvailableBalance()) );
     }
 
@@ -46,12 +46,12 @@ public class TestAccount {
     // Test for getTotalBalance //
 
     @Test
-    public void getTotalBalanceTest () {
+    public void getTotalBalanceOKTest () {
         assertTrue( new Euro(1200).ugualeA(account.getTotalBalance()) );
     }
 
     @Test
-    public void getTotalBalanceFailureTest () {
+    public void getTotalBalanceFAILURETest () {
         assertFalse( new Euro(100).ugualeA(account.getTotalBalance()) );
     }
 
@@ -59,13 +59,13 @@ public class TestAccount {
     // Test for credit //
 
     @Test
-    public void testCredit () {
+    public void creditOKTest () {
         account.credit(new Euro(200));
         assertTrue(new Euro(1400).ugualeA(account.getTotalBalance()));
     }
 
     @Test
-    public void testCreditNegative () {
+    public void CreditNegativeOKtest () {
         account.credit(new Euro(-200));
         assertTrue(new Euro(1000).ugualeA(account.getTotalBalance()));
     }
@@ -74,14 +74,14 @@ public class TestAccount {
     // Test for debit //
 
     @Test 
-    public void testDebit () {
+    public void debitOKTest () {
         account.debit(new Euro(200));
         assertTrue(new Euro(800).ugualeA(account.getAvailableBalance()));
         assertTrue(new Euro(1000).ugualeA(account.getTotalBalance()));
     } 
 
     @Test
-    public void testDebitNegative () {
+    public void debitNegativeOKTest () {
         account.debit(new Euro(2000));
         assertTrue(new Euro(-1000).ugualeA(account.getAvailableBalance()));
         assertTrue(new Euro(-800).ugualeA(account.getTotalBalance()));
@@ -91,15 +91,13 @@ public class TestAccount {
     // Test for getAccountNumber //
 
     @Test
-    public void testGetAccountNumber () {
+    public void getAccountNumberOKTest () {
         assertEquals(12345, account.getAccountNumber());
     }
 
     @Test
-    public void testGetAccountNumberFailure () {
+    public void GetAccountNumberFAILURETest () {
         assertNotEquals(123145, account.getAccountNumber());
     }
-
-
 
 }

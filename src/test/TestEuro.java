@@ -45,37 +45,37 @@ public class TestEuro {
 
     // Tests for initialize Euro //
     @Test
-    public void testInitOneArgument() {
+    public void InitOneArgumentOKTest() {
         assertEquals(3500, value1.getValore());
     }
 
     @Test
-    public void testInitDoubleValue() {
+    public void InitDoubleValueOKTest() {
         assertEquals(4275, doubleValue.getValore());
     }
 
     @Test
-    public void testInitNegativeDoubleValue() {
+    public void InitNegativeDoubleValueOKTest() {
         assertEquals(-1233, negativeDoubleValue1.getValore());
     }
 
     @Test
-    public void testInitTwoArguments() {
+    public void InitTwoArgumentsOKTest() {
         assertEquals(2510, value3.getValore());
     }
 
     @Test
-    public void testInitNegativeEuro() {
+    public void InitNegativeEuroOKTest() {
         assertEquals(-5030, negativeEuroT.getValore());
     }
 
     @Test
-    public void testInitNegativeCent() {
+    public void InitNegativeCentOKTest() {
         assertEquals(4970, negativeCentT.getValore());
     }
 
     @Test
-    public void testInitNegativeEuroAndCent() {
+    public void InitNegativeEuroAndCentOKTest() {
         assertEquals(-4970, negativeEuroAndCentT.getValore());
     }
 
@@ -83,57 +83,57 @@ public class TestEuro {
 
     // Tests for sum //
     @Test
-    public void testSommaOneArgumentBothPositive() {
+    public void SommaOneArgumentBothPositiveOKTest() {
         Euro result = value1.somma(value2);
         assertEquals(5000, result.getValore());
     }
 
     @Test
-    public void testSommaOneArgumentOneNegative() {
+    public void SommaOneArgumentOneNegativeOKTest() {
         Euro result = value1.somma(negativeValue1);
         assertEquals(2400, result.getValore());
     }
 
     @Test
-    public void testSommaOneArgumentBothNegative() {
+    public void SommaOneArgumentBothNegativeOKTest() {
         Euro result = negativeValue1.somma(negativeValue2);
         assertEquals(-4400, result.getValore());
     }
 
     @Test
-    public void testSommaOneArgumentOneNegativeDouble() {
+    public void SommaOneArgumentOneNegativeDoubleOKTest() {
         Euro result = negativeDoubleValue1.somma(value1);
         assertEquals(2267, result.getValore());
     }
 
     @Test
-    public void testSommaOneArgumentBothNegativeDouble(){
+    public void SommaOneArgumentBothNegativeDoubleOKTest(){
         Euro result = negativeDoubleValue1.somma(negativeDoubleValue2);
         assertEquals(-3685, result.getValore());
     }
 
 
     @Test
-    public void testSommaTwoArgumentsBothPositive() {
+    public void SommaTwoArgumentsBothPositiveOKTest() {
         Euro result = value3.somma(value4);
         assertEquals(9764, result.getValore());
     }
 
     @Test
-    public void testSommaTwoArgumentsOneNegative() {
+    public void SommaTwoArgumentsOneNegativeOKTest() {
         Euro result = value3.somma(negativeEuroT);
         assertEquals(-2520, result.getValore());
     }
 
     @Test
-    public void testSommaTwoArgumentBothNegative() {
+    public void SommaTwoArgumentBothNegativeOKTest() {
         Euro result = negativeEuroT.somma(negativeCentT);
         assertEquals(-60, result.getValore());
     }
 
 
     @Test
-    public void testSommaMixedArguments() {
+    public void SommaMixedArgumentsOKTest() {
         Euro result = value1.somma(value3);
         assertEquals(6010, result.getValore());
     }
@@ -144,57 +144,57 @@ public class TestEuro {
     // Tests for sub //
 
     @Test
-    public void testSottraiOneArgumentBothPositive() {
+    public void SottraiOneArgumentBothPositiveOKTest() {
         Euro result = value1.sottrai(value2);
         assertEquals(2000, result.getValore());
     }
 
     @Test
-    public void testSottraiOneArgumentOneNegative() {
+    public void SottraiOneArgumentOneNegativeOKTest() {
         Euro result = value1.sottrai(negativeValue1);
         assertEquals(4600, result.getValore());
     }
 
     @Test
-    public void testSottraiOneArgumentBothNegative() {
+    public void SottraiOneArgumentBothNegativeOKTest() {
         Euro result = negativeValue1.sottrai(negativeValue2);
         assertEquals(2200, result.getValore());
     }
 
     @Test
-    public void testSottraiOneArgumentOneNegativeDouble() {
+    public void SottraiOneArgumentOneNegativeDoubleOKTest() {
         Euro result = negativeDoubleValue1.sottrai(value1);
         assertEquals(-4733, result.getValore());
     }
 
     @Test
-    public void testSottraiOneArgumentBothNegativeDouble(){
+    public void SottraiOneArgumentBothNegativeDoubleOKTest(){
         Euro result = negativeDoubleValue1.sottrai(negativeDoubleValue2);
         assertEquals(1219, result.getValore());
     }
 
 
      @Test
-    public void testSottraiTwoArgumentsBothPositive() {
+    public void SottraiTwoArgumentsBothPositiveOKTest() {
         Euro result = value3.sottrai(value4);
         assertEquals(-4744, result.getValore());
     }
 
     @Test
-    public void testSottraiTwoArgumentsOneNegative() {
+    public void SottraiTwoArgumentsOneNegativeOKTest() {
         Euro result = value3.sottrai(negativeEuroT);
         assertEquals(7540, result.getValore());
     }
 
     @Test
-    public void testSottraiTwoArgumentBothNegative() {
+    public void SottraiTwoArgumentBothNegativeOKTest() {
         Euro result = negativeEuroT.sottrai(negativeCentT);
         assertEquals(-10000, result.getValore());
     }
 
 
     @Test
-    public void testSottraiMixedArguments() {
+    public void SottraiMixedArgumentsOKTest() {
         Euro result = value1.sottrai(value3);
         assertEquals(990, result.getValore());
     }
@@ -204,12 +204,12 @@ public class TestEuro {
     // Tests EqualsTo //
 
     @Test
-    public void testUgualeA1() {
+    public void UgualeA1OKTest() {
         assertTrue(value1.ugualeA(new Euro (35, 0)));
     }
 
     @Test
-    public void testUgualeA2() {
+    public void UgualeA2OKTest() {
         Euro val1 = new Euro(10);
         Euro val2 = new Euro(5);
         Euro result = val1.somma(val2);
@@ -217,7 +217,7 @@ public class TestEuro {
     }
 
     @Test
-    public void testNotUgualeA() {
+    public void NotUgualeAFAILURETest() {
         assertFalse(value4.ugualeA(negativeDoubleValue1));
     }
 
@@ -225,17 +225,17 @@ public class TestEuro {
     // Tests LessThan //
 
     @Test 
-    public void testMinoreDi1() {
+    public void MinoreDi1OKTest() {
         assertTrue(value2.minoreDi(value1));
     }
 
     @Test
-    public void testMinoreDi2() {
+    public void MinoreDi2OKTest() {
         assertTrue(doubleValue.minoreDi(new Euro(60)));
     }
 
     @Test
-    public void testMinoreDi3() {
+    public void MinoreDi3FAILURETest() {
         assertFalse(negativeDoubleValue1.minoreDi(negativeDoubleValue2));
     }
 
@@ -243,27 +243,27 @@ public class TestEuro {
     // Tests Print //
 
     @Test
-    public void testStampaOneArgument1() {
+    public void StampaOneArgument1OKTest() {
         assertEquals("35.0 euro", value1.stampa());
     }
 
     @Test
-    public void testStampaOneArgument2() {
+    public void StampaOneArgument2OKTest() {
         assertEquals("15.0 euro", value2.stampa());
     }
 
     @Test
-    public void testStampaTwoArguments1() {
+    public void StampaTwoArguments1OKTest() {
         assertEquals("25.1 euro", value3.stampa());
     }
 
     @Test
-    public void testStampaTwoArguments2() {
+    public void StampaTwoArguments2OKTest() {
         assertEquals("72.54 euro", value4.stampa());
     }
 
     @Test
-    public void testStampaFalse() {
+    public void StampaFalseOKTest() {
         assertNotEquals("128.44 euro", negativeDoubleValue1.stampa());
     }
 }
