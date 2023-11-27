@@ -5,6 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import code.Business_logic.Euro;
 import code.Database.BankDatabase;
@@ -41,15 +43,24 @@ public class TestBankDatabase {
         BankDatabase bankDatabase = new BankDatabase();
         bankDatabase.credit(12345, new Euro(500.00));
 
-        assertEquals(new Euro(1700.0), bankDatabase.getTotalBalance(12345));
+        assertEquals(new Euro(1700.00), bankDatabase.getTotalBalance(12345));
     }
 
     @Test
     public void testDebit() {
         BankDatabase bankDatabase = new BankDatabase();
-        bankDatabase.debit(12345, new Euro(200.0));
+        bankDatabase.debit(12345, new Euro(200.00));
         
-        assertEquals(new Euro(800.0), bankDatabase.getAvailableBalance(12345));
+        assertEquals(new Euro(800.00), bankDatabase.getAvailableBalance(12345));
+    }
+
+
+    @ParameterizedTest
+    @CsvSource({"5.5", "0.85", "2056.23", "112.56"})
+    public void testCreditParametrizzato(double credit) {
+        BankDatabase bankDatabase = new BankDatabase();
+        bankDatabase.debit(12345, new Euro(credit));
+        assertEquals(new Euro(1200.00 - credit), bankDatabase.getTotalBalance(12345));
     }
     
 }

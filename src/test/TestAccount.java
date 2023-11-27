@@ -5,6 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import code.Business_logic.Euro;
 import code.Database.Account;
@@ -99,5 +101,13 @@ public class TestAccount {
         assertEquals(new Euro(225.0), account.getTotalBalance());
         assertEquals(new Euro(150.0), account.getAvailableBalance());
     }
-    
+
+
+    @ParameterizedTest
+    @CsvSource({"12345", "56498", "12458", "9987"})
+    public void testGetAccountNumberParametrizzato(int accountNumber) {
+        Account account = new Account(accountNumber, 6789, 100.0, 150.0);
+        assertEquals(accountNumber, account.getAccountNumber());
+    }
+
 }

@@ -5,6 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import code.Business_logic.Euro;
 
@@ -76,4 +78,12 @@ public class TestEuro {
         Euro euro = new Euro(5, 50);
         assertEquals("5.50 euro", euro.stampa());
     }
+
+    @ParameterizedTest
+    @CsvSource({"5,50,550", "0,20,20", "0,2,2", "7,72,772"})
+    public void testCostruttoreEuroPositivoParametrizzato(int a, int b, int c) {
+        Euro euro = new Euro(a, b);
+        assertEquals(c, euro.getValore());
+    }
+
 }
