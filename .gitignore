@@ -38,4 +38,8 @@ nbdist/
 .nb-gradle/
 
 # VS Code files
+<<<<<<< HEAD
 .vscode/
+=======
+.vscode/
+>>>>>>> origin/feature
