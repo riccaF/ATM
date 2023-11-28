@@ -5,8 +5,15 @@ import org.junit.*;
 
 import code.Business_logic.Euro;
 
+/*Questo file contiene i test della classe Euro, passa attraverso i costruttori principali
+ * A -> intero,intero
+ * B -> double
+ * e procede attraverso tutte le funzioni di variazione e confronto che sono disponibili
+ * nella suddetta classe.
+ */
+
 public class TestEuro {
-    @Test
+    @Test 
     public void testConstructorA1(){
         Euro element = new Euro(1000, 30);
         assertEquals(100030,element.getValore());
