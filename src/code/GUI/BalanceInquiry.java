@@ -1,8 +1,5 @@
 package code.GUI;
 import code.Businness_logic.Euro;
-// BalanceInquiry.java
-// Represents a balance inquiry ATM transaction
-
 import code.Businness_logic.Transaction;
 import code.Database.BankDatabase;
 

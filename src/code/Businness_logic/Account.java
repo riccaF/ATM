@@ -1,7 +1,5 @@
 package code.Businness_logic;
-import code.Businness_logic.Euro;
-// Account.java
-// Represents a bank account
+//import code.Businness_logic.Euro;
 
 public class Account 
 {
