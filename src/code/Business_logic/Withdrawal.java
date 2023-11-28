@@ -1,9 +1,16 @@
+package code.Business_logic;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
 
+
+import code.Database.BankDatabase;
+
+import code.GUI.Keypad;
+import code.GUI.Screen;
+
 public class Withdrawal extends Transaction
 {
-   private int amount; // amount to withdraw
+   private Euro amount; // amount to withdraw
    private Keypad keypad; // reference to keypad
    private CashDispenser cashDispenser; // reference to cash dispenser
 
@@ -27,7 +34,7 @@ public class Withdrawal extends Transaction
    public void execute()
    {
       boolean cashDispensed = false; // cash was not dispensed yet
-      double availableBalance; // amount available for withdrawal
+      Euro availableBalance; // amount available for withdrawal
 
       // get references to bank database and screen
       BankDatabase bankDatabase = getBankDatabase(); 
@@ -40,22 +47,22 @@ public class Withdrawal extends Transaction
          amount = displayMenuOfAmounts();
          
          // check whether user chose a withdrawal amount or canceled
-         if ( amount != CANCELED )
+         if (!amount.ugualeA(new Euro(CANCELED)))
          {
             // get available balance of account involved
             availableBalance = 
-               bankDatabase.getAvailableBalance( getAccountNumber() );
+               bankDatabase.getAvailableBalance(getAccountNumber());
       
             // check whether the user has enough money in the account 
-            if ( amount <= availableBalance )
+            if ( amount.minoreDi(availableBalance))
             {   
                // check whether the cash dispenser has enough money
-               if ( cashDispenser.isSufficientCashAvailable( amount ) )
+               if ( cashDispenser.isSufficientCashAvailable(amount))
                {
                   // update the account involved to reflect withdrawal
-                  bankDatabase.debit( getAccountNumber(), amount );
+                  bankDatabase.debit(getAccountNumber(), amount);
                   
-                  cashDispenser.dispenseCash( amount ); // dispense cash
+                  cashDispenser.dispenseCash(amount); // dispense cash
                   cashDispensed = true; // cash was dispensed
 
                   // instruct user to take cash
@@ -85,9 +92,9 @@ public class Withdrawal extends Transaction
 
    // display a menu of withdrawal amounts and the option to cancel;
    // return the chosen amount or 0 if the user chooses to cancel
-   private int displayMenuOfAmounts()
+   private Euro displayMenuOfAmounts()
    {
-      int userChoice = 0; // local variable to store return value
+      Euro userChoice = new Euro(0); // local variable to store return value
 
       Screen screen = getScreen(); // get screen reference
       
@@ -95,7 +102,7 @@ public class Withdrawal extends Transaction
       int amounts[] = { 0, 20, 40, 60, 100, 200 };
 
       // loop while no valid choice has been made
-      while ( userChoice == 0 )
+      while ( userChoice.ugualeA(new Euro(0)))
       {
          // display the menu
          screen.displayMessageLine( "\nWithdrawal Menu:" );
@@ -117,10 +124,10 @@ public class Withdrawal extends Transaction
             case 3: // corresponding amount from amounts array
             case 4:
             case 5:
-               userChoice = amounts[ input ]; // save user's choice
+               userChoice = new Euro(amounts[input]); // save user's choice
                break;       
             case CANCELED: // the user chose to cancel
-               userChoice = CANCELED; // save user's choice
+               userChoice = new Euro(CANCELED); // save user's choice
                break;
             default: // the user did not enter a value from 1-6
                screen.displayMessageLine( 
