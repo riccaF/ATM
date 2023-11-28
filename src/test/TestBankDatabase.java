@@ -10,7 +10,7 @@ import code.Business_logic.Euro;
 /*
  * Questo file contiene i test della classe BankDatabase, i test coinvolgono le funzioni principali,
  * i getter, l'authenticate (che viene analizzata in tutte le casistiche possibili: il caso in cui
- * l'utente ed il pin siano corretti, il caso in cui l'utente sia corretto ma il pin sbagliato ed il caso in cui
+ * l'utente ed il pin siano corretti, il caso in cui l'utente sia corretto, ma il pin sbagliato ed il caso in cui
  * l'utente sia sbagliato)
  */
 
@@ -64,13 +64,13 @@ public class TestBankDatabase {
         });
     }
 
-    @Test //test della funzione BankDatabase.credit
+    @Test //test del metodo BankDatabase.credit
     public void Test_credit(){
         element.credit(12345,amount);
         assertEquals(2200, (int)element.getTotalBalance(12345).getValoreD());
     }
 
-    @Test //test della funzione BankDatabase.debit
+    @Test //test del metodo BankDatabase.debit
     public void Test_deposit(){
         element.debit(12345, amount);
         assertEquals(200, (int)element.getTotalBalance(12345).getValoreD());

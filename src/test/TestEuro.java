@@ -31,7 +31,7 @@ public class TestEuro {
         assertEquals(1234,element.getValore());
     }
 
-    @Test
+    @Test //test del metodo somma
     public void testSomma(){
         double num1 = 56789.23;
         double num2 = 12345.67;
@@ -41,7 +41,7 @@ public class TestEuro {
         assertEquals((long)((num1+num2)*100),a.getValore());
     }
 
-    @Test
+    @Test//test del metodo sottrai
     public void testSottrai(){
         double num1 = 56789.23;
         double num2 = 12345.67;
@@ -51,7 +51,7 @@ public class TestEuro {
         assertEquals((long)((num1-num2)*100),a.getValore());
     }
 
-    @Test
+    @Test //test del metodo uguale 1
     public void testUgualea(){
         double num1 = 12345.67;
         double num2 = 12345.67;
@@ -61,7 +61,7 @@ public class TestEuro {
         assertTrue(a.ugualeA(b));
     }
 
-    @Test
+    @Test //test del metodo uguale 2
     public void testUgualea2(){
         double num1 = 12345.22;
         double num2 = 12345.67;
@@ -71,7 +71,7 @@ public class TestEuro {
         assertFalse(a.ugualeA(b));
     }
 
-    @Test
+    @Test //test 1 del metodo minore di
     public void testMinoreDi_1(){
         double num1 = 12345.67;
         double num2 = 12.34;
@@ -81,7 +81,7 @@ public class TestEuro {
         assertTrue(b.minoreDi(a));
     }
 
-    @Test
+    @Test //test 2 del metodo minore di
     public void testMinoreDi_2(){
         double num1 = 12345.67;
         double num2 = 12.34;
@@ -90,7 +90,7 @@ public class TestEuro {
         assertFalse(a.minoreDi(b));
     }
 
-    @Test
+    @Test //test del metodo stampa
     public void stampa(){
         String s="12345.67 euro";
         Euro euro=new Euro(12345.67);
