@@ -1,8 +1,8 @@
 package code.Business_Logic;
-// ATMCaseStudy.java
-// Driver program for the ATM case study
 
 import code.GUI.ATM;
+// ATMCaseStudy.java
+// Driver program for the ATM case study
 
 public class ATMCaseStudy
 {
