@@ -59,9 +59,9 @@ public class BankDatabase
    } // end method getTotalBalance
 
    // credit an amount to Account with specified account number
-   public void credit( int userAccountNumber, double amount )
+   public void credit( int userAccountNumber, Euro amount )
    {
-      getAccount( userAccountNumber ).credit( new Euro(amount) );
+      getAccount( userAccountNumber ).credit(amount);
    } // end method credit
 
    // debit an amount from of Account with specified account number12345
