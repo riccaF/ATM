@@ -1,0 +1,4 @@
+Thomas Ghione 5254284
+Simone Tomasella 5311626
+
+Abbiamo avuto un merge conflict da feature a main, ma non siamo sicuri sia evidente nel DAG, se vuole possiamo mostrarglielo direttamente a lezione se lo ritiene necessario
