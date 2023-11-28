@@ -1,12 +1,11 @@
 package code.GUI;
+// ATM.java
+// Represents an automated teller machine
 
 import code.Business_Logic.CashDispenser;
 import code.Business_Logic.DepositSlot;
 import code.Business_Logic.Transaction;
 import code.Database.BankDatabase;
-
-// ATM.java
-// Represents an automated teller machine
 
 public class ATM 
 {
