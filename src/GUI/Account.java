@@ -1,19 +1,18 @@
 package GUI;
+
 // Account.java
 // Represents a bank account
-
-import Business_logic.Euro;
 
 public class Account 
 {
    private int accountNumber; // account number
    private int pin; // PIN for authentication
-   private Euro availableBalance; // funds available for withdrawal
-   private Euro totalBalance; // funds available + pending deposits
+   private double availableBalance; // funds available for withdrawal
+   private double totalBalance; // funds available + pending deposits
 
    // Account constructor initializes attributes
    public Account( int theAccountNumber, int thePIN, 
-      Euro theAvailableBalance, Euro theTotalBalance )
+      double theAvailableBalance, double theTotalBalance )
    {
       accountNumber = theAccountNumber;
       pin = thePIN;
@@ -31,28 +30,28 @@ public class Account
    } // end method validatePIN
    
    // returns available balance
-   public Euro getAvailableBalance()
+   public double getAvailableBalance()
    {
       return availableBalance;
    } // end getAvailableBalance
 
    // returns the total balance
-   public Euro getTotalBalance()
+   public double getTotalBalance()
    {
       return totalBalance;
    } // end method getTotalBalance
 
    // credits an amount to the account
-   public void credit( Euro amount )
+   public void credit( double amount )
    {
-      totalBalance = totalBalance.somma(amount); // add to total balance
+      totalBalance += amount; // add to total balance
    } // end method credit
 
    // debits an amount from the account
-   public void debit( Euro amount )
+   public void debit( double amount )
    {
-      availableBalance = availableBalance.sottrai(amount); // subtract from available balance
-      totalBalance = totalBalance.sottrai(amount); // subtract from total balance
+      availableBalance -= amount; // subtract from available balance
+      totalBalance -= amount; // subtract from total balance
    } // end method debit
 
    // returns account number

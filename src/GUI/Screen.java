@@ -2,8 +2,6 @@ package GUI;
 // Screen.java
 // Represents the screen of the ATM
 
-import Business_logic.Euro;
-
 public class Screen
 {
    // displays a message without a carriage return
@@ -19,7 +17,7 @@ public class Screen
    } // end method displayMessageLine
 
    // display a dollar amount
-   public void displayDollarAmount( Euro amount )
+   public void displayDollarAmount( double amount )
    {
       System.out.printf( "$%,.2f", amount );   
    } // end method displayDollarAmount 

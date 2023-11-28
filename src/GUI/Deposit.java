@@ -3,13 +3,12 @@ package GUI;
 // Represents a deposit ATM transaction
 
 import Business_logic.DepositSlot;
-import Business_logic.Euro;
 import Business_logic.Transaction;
 import Database.BankDatabase;
 
 public class Deposit extends Transaction
 {
-   private Euro amount; // amount to deposit
+   private double amount; // amount to deposit
    private Keypad keypad; // reference to keypad
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
@@ -36,7 +35,7 @@ public class Deposit extends Transaction
       amount = promptForDepositAmount(); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
-      if (amount.getValore() != CANCELED)
+      if ( amount != CANCELED )
       {
          // request deposit envelope containing specified amount
          screen.displayMessage( 
@@ -71,7 +70,7 @@ public class Deposit extends Transaction
    } // end method execute
 
    // prompt user to enter a deposit amount in cents 
-   private Euro promptForDepositAmount()
+   private double promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
 
@@ -82,10 +81,10 @@ public class Deposit extends Transaction
       
       // check whether the user canceled or entered a valid amount
       if ( input == CANCELED ) 
-         return new Euro(CANCELED);
+         return CANCELED;
       else
       {
-         return new Euro(input/100); // return dollar amount 
+         return ( double ) input / 100; // return dollar amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit
