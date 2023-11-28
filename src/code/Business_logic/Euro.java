@@ -1,7 +1,6 @@
 package code.Business_logic;
+
 public class Euro {
-
-
 	private long valore;
 
 	public Euro(long euro, long cent) {
@@ -38,12 +37,6 @@ public class Euro {
 	
 	public boolean minoreDi(Euro e){
 		if (valore <= e.getValore())
-			return true;
-		else return false;
-	}
-
-	public boolean maggioreDi(Euro e){
-		if (valore >= e.getValore())
 			return true;
 		else return false;
 	}
