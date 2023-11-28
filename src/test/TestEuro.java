@@ -1,9 +1,12 @@
 package test;
 
-import org.junit.Test;
-import code.Business_logic.Euro;
 import static org.junit.Assert.*;
-import org.junit.Before;
+
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+import code.Business_logic.Euro;
+
 
 public class TestEuro {
     
@@ -12,12 +15,12 @@ public class TestEuro {
     private Euro euro3;
     private Euro euro4;
     
-    @Before  //usiamo @Before e non @BeforeEach perchè usiamo junit 4
+    @BeforeEach
     public void setUp() {
         euro1 = new Euro(10, 50);
         euro2 = new Euro(15, 25);
         euro3 = new Euro(20, 00);
-        euro4 = new Euro(30, 00);
+        euro4 = new Euro(30);
 
     }
 
