@@ -53,7 +53,7 @@ public class Deposit extends Transaction
             screen.displayMessageLine( "\nYour envelope has been " + 
                "received.\nNOTE: The money just deposited will not " + 
                "be available until we verify the amount of any " +
-               "enclosed cash and your checks clear." );
+               "enclosed cash and your checks clear" );
             
             // credit account to reflect the deposit
             bankDatabase.credit( getAccountNumber(), amount ); 

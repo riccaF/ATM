@@ -61,13 +61,13 @@ public class BankDatabase
    // credit an amount to Account with specified account number
    public void credit( int userAccountNumber, double amount )
    {
-      getAccount( userAccountNumber ).credit(new Euro((long)amount/100 , (long)amount%100) );
+      getAccount( userAccountNumber ).credit( new Euro(amount) );
    } // end method credit
 
    // debit an amount from of Account with specified account number12345
-   public void debit( int userAccountNumber, double amount )
+   public void debit( int userAccountNumber, Euro amount )
    {
-      getAccount( userAccountNumber ).debit( new Euro(amount));
+      getAccount( userAccountNumber ).debit( amount );
    } // end method debit
 } // end class BankDatabase
 
