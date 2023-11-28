@@ -1,9 +1,8 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 
 import code.Business_logic.Euro;
 
@@ -26,7 +25,6 @@ public class TestEuro {
 
     @Test
     public void testGetValore() {
-        
         long expectedValore = 1050;
         long actualValore = euro1.getValore();
 
