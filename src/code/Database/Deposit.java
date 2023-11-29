@@ -1,6 +1,11 @@
-package code;
+package code.Database;
 // Deposit.java
 // Represents a deposit ATM transaction
+
+import code.Business_logic.DepositSlot;
+import code.GUI.Keypad;
+import code.GUI.Screen;
+import code.GUI.Transaction;
 
 public class Deposit extends Transaction
 {

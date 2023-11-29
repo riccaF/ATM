@@ -1,4 +1,4 @@
-package code;
+package code.Business_logic;
 //ricordare di  aggiungere il .class al file gitignore.
 
 public class Euro {

@@ -1,4 +1,4 @@
-package code;
+package code.Database;
 // CashDispenser.java
 // Represents the cash dispenser of the ATM
 
