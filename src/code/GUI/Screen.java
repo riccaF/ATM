@@ -1,4 +1,5 @@
 package code.GUI;
+import code.Business_logic.Euro;
 // Screen.java
 // Represents the screen of the ATM
 
@@ -17,11 +18,17 @@ public class Screen
    } // end method displayMessageLine
 
    // display a dollar amount
-   public void displayDollarAmount( double amount )
+   public void displayEuroAmount( Euro amount )
    {
-      System.out.printf( "$%,.2f", amount );   
-   } // end method displayDollarAmount 
+      System.out.printf( "$%,.2f", amount.getValore()/100.0 );
+   } // end method displayEuroAmount 
 } // end class Screen
+
+/*In questo modo, il metodo displayEuroAmount accetta un oggetto di tipo Euro e lo formatta 
+correttamente per essere visualizzato sulla schermata dell'ATM. L'importo viene diviso per 100.0
+ perché la rappresentazione interna di Euro è in centesimi.*/
+
+
 
 
 
