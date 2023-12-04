@@ -37,7 +37,7 @@ public class Deposit extends Transaction
       amount = promptForDepositAmount(); // get deposit amount from user
 
       // check whether user entered a deposit amount or canceled
-      if (amount.ugualeA(CANCELED)) 
+      if (!amount.ugualeA(CANCELED)) 
       {
          // request deposit envelope containing specified amount
          screen.displayMessage( 
