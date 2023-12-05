@@ -61,7 +61,11 @@ public class TestEuro {
         Euro euroMinore = new Euro(50, 74);
 
         assertTrue(euro.minoreOUgualeDi(euroMaggiore));
+<<<<<<< HEAD
         assertFalse(euro.minoreOUgualeDi(stessoEuro)); // Ci si aspetta fallisca.
+=======
+        assertTrue(euro.minoreOUgualeDi(stessoEuro));
+>>>>>>> 9e3bc295230e6c2c5e787ce3a5717b42af299ad8
         assertFalse(euro.minoreOUgualeDi(euroMinore));
     }
 

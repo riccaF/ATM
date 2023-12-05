@@ -20,7 +20,9 @@ public class Screen
    // display a dollar amount
    public void displayEuroAmount( Euro amount )
    {
-      System.out.printf( "$%,.2f", amount.getValore()/100.0 );
+      // Note: \u20ac is the Unicode character for the Euro symbol.
+      System.out.print("Euro ");
+      System.out.printf( "%,.2f", amount.getValore()/100.0 );
    } // end method displayEuroAmount 
 } // end class Screen
 
