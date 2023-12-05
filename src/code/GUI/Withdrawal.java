@@ -51,7 +51,7 @@ public class Withdrawal extends Transaction
                bankDatabase.getAvailableBalance( getAccountNumber());
       
             // check whether the user has enough money in the account 
-            if ( amount.minoreDi(availableBalance) )
+            if ( amount.minoreOUgualeDi(availableBalance) )
             {   
                // check whether the cash dispenser has enough money
                if ( cashDispenser.isSufficientCashAvailable( amount) )

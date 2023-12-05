@@ -55,14 +55,14 @@ public class TestEuro {
     }
 
     @Test
-    public void testMinoreDi() {
+    public void testminoreOUgualeDi() {
         Euro euroMaggiore = new Euro(75, 0);
         Euro stessoEuro = new Euro(50, 75);
         Euro euroMinore = new Euro(50, 74);
 
-        assertTrue(euro.minoreDi(euroMaggiore));
-        assertFalse(euro.minoreDi(stessoEuro)); // Ci si aspetta fallisca.
-        assertFalse(euro.minoreDi(euroMinore));
+        assertTrue(euro.minoreOUgualeDi(euroMaggiore));
+        assertTrue(euro.minoreOUgualeDi(stessoEuro));
+        assertFalse(euro.minoreOUgualeDi(euroMinore));
     }
 
     @Test
