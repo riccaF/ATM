@@ -65,6 +65,7 @@ public class TestBankDatabase {
       Euro amountToDebit = new Euro(2000.0);
       // Ensure that the balance doesn't change if there are insufficient funds
       bankDatabase.debit(12345, amountToDebit);
+      // Ultimo commento.
       Euro expectedBalance = new Euro(1000.0);
       assertEquals(expectedBalance.getValore(), bankDatabase.getAvailableBalance(12345).getValore());
    }
