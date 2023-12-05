@@ -37,7 +37,7 @@ public class Euro {
         else return false;
     }
    
-    public boolean minoreDi(Euro e){
+    public boolean minoreOUgualeDi(Euro e){
         if (valore <= e.getValore())
             return true;
         else return false;
