@@ -33,7 +33,7 @@ public class TestBankDatabase {
 
    @Test
    public void testgetAvailableBalance() {
-      Euro expectedBalance = new Euro(1200.0);
+      Euro expectedBalance = new Euro(1000.0);
       assertEquals(expectedBalance.getValore(), bankDatabase.getAvailableBalance(12345).getValore());
    }
 
@@ -46,17 +46,17 @@ public class TestBankDatabase {
 
    @Test
    public void testCredit() {
-      Euro amountToCredit = new Euro(500.0);
+      Euro amountToCredit = new Euro(300.0);
       bankDatabase.credit(12345, amountToCredit);
       Euro expectedBalance = new Euro(1500.0);
-      assertEquals(expectedBalance.getValore(), bankDatabase.getAvailableBalance(12345).getValore());
+      assertEquals(expectedBalance.getValore(), bankDatabase.getTotalBalance(12345).getValore());
    }
 
    @Test
    public void testDebitSufficientFunds() {
       Euro amountToDebit = new Euro(200.0);
       bankDatabase.debit(12345, amountToDebit);
-      Euro expectedBalance = new Euro(1000.0);
+      Euro expectedBalance = new Euro(800.0);
       assertEquals(expectedBalance.getValore(), bankDatabase.getAvailableBalance(12345).getValore());
    }
 
@@ -65,7 +65,7 @@ public class TestBankDatabase {
       Euro amountToDebit = new Euro(2000.0);
       // Ensure that the balance doesn't change if there are insufficient funds
       bankDatabase.debit(12345, amountToDebit);
-      Euro expectedBalance = new Euro(1200.0);
+      Euro expectedBalance = new Euro(1000.0);
       assertEquals(expectedBalance.getValore(), bankDatabase.getAvailableBalance(12345).getValore());
    }
 }

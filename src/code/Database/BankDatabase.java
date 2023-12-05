@@ -64,7 +64,10 @@ public class BankDatabase
    // debit an amount from of Account with specified account number
    public void debit( int userAccountNumber, Euro amount )
    {
-      getAccount( userAccountNumber ).debit( amount );
+      // Check if the account has enough money to withdraw
+      if(getAccount( userAccountNumber ).getAvailableBalance().getValore() >= amount.getValore()){
+         getAccount( userAccountNumber ).debit( amount );
+      }
    } // end method debit
 } // end class BankDatabase
 
